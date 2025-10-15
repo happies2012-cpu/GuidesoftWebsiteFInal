@@ -4,12 +4,7 @@ import { cn } from "@/lib/utils";
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 import TypewriterEffect from "./TypewriterEffect";
-import devImg from '@/assets/Studio/dev.png';
-import uxuiImg from '@/assets/Studio/uxui.png';
-import designingImg from '@/assets/Studio/designing.png';
-import workflowsImg from '@/assets/Studio/workflows.png';
-import productsImg from '@/assets/Studio/products.png';
-import promotingImg from '@/assets/Studio/promoting.png';
+
 
 const transitionVariants = {
     item: {
@@ -159,7 +154,7 @@ const LogoCloud = () => {
               <div className="flex">
                 <img
                   className="mx-auto w-[150px] h-[150px] object-contain"
-                  src={devImg}
+                  src="https://techicons.dev/icons/vscode"
                   alt="Development Services"
                   width="150"
                   height="150"
@@ -169,7 +164,7 @@ const LogoCloud = () => {
               <div className="flex">
                 <img
                   className="mx-auto w-[150px] h-[150px] object-contain"
-                  src={uxuiImg}
+                  src="https://techicons.dev/icons/figma"
                   alt="UI/UX Design"
                   width="150"
                   height="150"
@@ -178,7 +173,7 @@ const LogoCloud = () => {
               <div className="flex">
                 <img
                   className="mx-auto w-[150px] h-[150px] object-contain"
-                  src={designingImg}
+                  src="https://techicons.dev/icons/illustrator"
                   alt="Graphic Design"
                   width="150"
                   height="150"
@@ -187,7 +182,7 @@ const LogoCloud = () => {
               <div className="flex">
                 <img
                   className="mx-auto w-[150px] h-[150px] object-contain"
-                  src={workflowsImg}
+                  src="https://techicons.dev/icons/github"
                   alt="Workflow Automation"
                   width="150"
                   height="150"
@@ -196,7 +191,7 @@ const LogoCloud = () => {
               <div className="flex">
                 <img
                   className="mx-auto w-[150px] h-[150px] object-contain"
-                  src={productsImg}
+                  src="https://techicons.dev/icons/docker"
                   alt="Product Development"
                   width="150"
                   height="150"
@@ -205,7 +200,7 @@ const LogoCloud = () => {
               <div className="flex">
                 <img
                   className="mx-auto w-[150px] h-[150px] object-contain"
-                  src={promotingImg}
+                  src="https://techicons.dev/icons/googleads"
                   alt="Digital Promotion"
                   width="150"
                   height="150"

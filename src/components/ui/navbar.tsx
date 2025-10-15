@@ -342,32 +342,48 @@ const renderMenuItem = (item: MenuItem) => {
           {item.title}
         </NavigationMenuTrigger>
         <NavigationMenuContent className="rounded-2xl bg-background/95 backdrop-blur-xl border border-primary/20 shadow-xl">
-          <ul className="w-96 p-4">
-            <NavigationMenuLink className="rounded-2xl">
+          <div className="w-[800px] p-6">
+            <div className="grid grid-cols-2 gap-6">
               {item.items.map((subItem) => (
-                <li key={subItem.title}>
+                <div key={subItem.title} className="space-y-3">
+                  {/* Main category link */}
                   <Link
-                    className="flex select-none gap-4 rounded-xl p-4 leading-none no-underline outline-none transition-colors hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary group/link"
-                    to={subItem.url}
+                    to={subItem.url || "#"}
+                    className="flex items-center gap-3 rounded-xl p-3 hover:bg-primary/10 group/main transition-colors"
                   >
-                    <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 text-primary group-hover/link:bg-primary group-hover/link:text-primary-foreground transition-all">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 text-primary group-hover/main:bg-primary group-hover/main:text-primary-foreground transition-all">
                       {subItem.icon}
                     </div>
                     <div className="flex-1">
-                      <div className="text-sm font-semibold text-foreground mb-1">
+                      <div className="text-sm font-bold text-foreground group-hover/main:text-primary transition-colors">
                         {subItem.title}
                       </div>
                       {subItem.description && (
-                        <p className="text-sm leading-snug text-muted-foreground">
+                        <p className="text-xs leading-snug text-muted-foreground line-clamp-1">
                           {subItem.description}
                         </p>
                       )}
                     </div>
                   </Link>
-                </li>
+                  
+                  {/* Nested submenu items */}
+                  {subItem.items && subItem.items.length > 0 && (
+                    <div className="ml-3 pl-3 border-l-2 border-primary/20 space-y-1">
+                      {subItem.items.map((nestedItem) => (
+                        <Link
+                          key={nestedItem.title}
+                          to={nestedItem.url || "#"}
+                          className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-colors"
+                        >
+                          {nestedItem.title}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
-            </NavigationMenuLink>
-          </ul>
+            </div>
+          </div>
         </NavigationMenuContent>
       </NavigationMenuItem>
     );
@@ -393,32 +409,67 @@ const renderMobileMenuItem = (item: MenuItem) => {
           {item.title}
         </AccordionTrigger>
         <AccordionContent className="mt-2">
-          {item.items.map((subItem) => (
-            <Link
-              key={subItem.title}
-              className="flex select-none gap-4 rounded-xl p-3 leading-none outline-none transition-colors hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary"
-              to={subItem.url}
-            >
-              <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10 text-primary">
-                {subItem.icon}
-              </div>
-              <div className="flex-1">
-                <div className="text-sm font-semibold text-foreground">{subItem.title}</div>
-                {subItem.description && (
-                  <p className="text-xs leading-snug text-muted-foreground mt-1">
-                    {subItem.description}
-                  </p>
+          <Accordion type="single" collapsible className="w-full space-y-2">
+            {item.items.map((subItem) => (
+              <div key={subItem.title} className="space-y-2">
+                {subItem.items && subItem.items.length > 0 ? (
+                  <AccordionItem value={subItem.title} className="border-b border-primary/10">
+                    <AccordionTrigger className="py-2 text-sm font-semibold hover:no-underline text-foreground hover:text-primary">
+                      <div className="flex items-center gap-3">
+                        <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10 text-primary">
+                          {subItem.icon}
+                        </div>
+                        <span>{subItem.title}</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="pl-11 space-y-1">
+                      {/* Parent link */}
+                      <Link
+                        to={subItem.url || "#"}
+                        className="block px-3 py-2 text-sm text-primary hover:bg-primary/10 rounded-lg transition-colors font-medium"
+                      >
+                        View All {subItem.title}
+                      </Link>
+                      {/* Nested links */}
+                      {subItem.items.map((nestedItem) => (
+                        <Link
+                          key={nestedItem.title}
+                          to={nestedItem.url || "#"}
+                          className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-primary/5 rounded-lg transition-colors"
+                        >
+                          {nestedItem.title}
+                        </Link>
+                      ))}
+                    </AccordionContent>
+                  </AccordionItem>
+                ) : (
+                  <Link
+                    to={subItem.url || "#"}
+                    className="flex select-none gap-3 rounded-xl p-3 leading-none outline-none transition-colors hover:bg-primary/10 hover:text-primary focus:bg-primary/10 focus:text-primary"
+                  >
+                    <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10 text-primary">
+                      {subItem.icon}
+                    </div>
+                    <div className="flex-1">
+                      <div className="text-sm font-semibold text-foreground">{subItem.title}</div>
+                      {subItem.description && (
+                        <p className="text-xs leading-snug text-muted-foreground mt-1">
+                          {subItem.description}
+                        </p>
+                      )}
+                    </div>
+                  </Link>
                 )}
               </div>
-            </Link>
-          ))}
+            ))}
+          </Accordion>
         </AccordionContent>
       </AccordionItem>
     );
   }
 
   return (
-    <Link key={item.title} to={item.url} className="font-semibold text-foreground hover:text-primary py-2 block">
+    <Link key={item.title} to={item.url || "#"} className="font-semibold text-foreground hover:text-primary py-2 block">
       {item.title}
     </Link>
   );
