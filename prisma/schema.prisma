@@ -1,0 +1,141 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String        @id @default(uuid())
+  email       String        @unique
+  password    String
+  name        String
+  role        Role          @default(USER)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  pages       Page[]
+  aiTools     AITool[]
+  courses     Courses[]
+  enrollments Enrollments[]
+}
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+  USER
+}
+
+model Page {
+  id          String   @id @default(uuid())
+  title       String
+  slug        String   @unique
+  content     String
+  metaTitle   String?
+  metaDesc    String?
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  authorId    String
+  author      User     @relation(fields: [authorId], references: [id])
+}
+
+model Navigation {
+  id        String   @id @default(uuid())
+  title     String
+  href      String?
+  order     Int      @default(0)
+  parentId  String?
+  parent    Navigation?  @relation("NavigationHierarchy", fields: [parentId], references: [id], onDelete: Cascade)
+  children  Navigation[] @relation("NavigationHierarchy")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AITool {
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  category    String
+  icon        String?
+  url         String?
+  tags        String
+  featured    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  authorId    String
+  author      User     @relation(fields: [authorId], references: [id])
+}
+
+model FormSubmission {
+  id        String   @id @default(uuid())
+  formType  String
+  data      String
+  createdAt DateTime @default(now())
+}
+
+model Settings {
+  id        String   @id @default(uuid())
+  key       String   @unique
+  value     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CourseCategories {
+  id        String   @id @default(uuid())
+  name      String
+  icon      String
+  color     String
+  createdAt DateTime @default(now())
+  courses   Courses[]
+}
+
+model Courses {
+  id             String             @id @default(uuid())
+  title          String
+  description    String
+  instructor     String
+  duration       String
+  level          String
+  categoryId     String
+  category       CourseCategories   @relation(fields: [categoryId], references: [id])
+  thumbnailUrl   String?
+  videoUrl       String?
+  price          Float              @default(0)
+  rating         Float              @default(0)
+  studentsCount  Int                @default(0)
+  isPublished    Boolean            @default(false)
+  createdBy      String
+  creator        User               @relation(fields: [createdBy], references: [id])
+  createdAt      DateTime           @default(now())
+  updatedAt      DateTime           @updatedAt
+  lessons        CourseLessons[]
+  enrollments    Enrollments[]
+}
+
+model CourseLessons {
+  id          String   @id @default(uuid())
+  courseId    String
+  course      Courses  @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  title       String
+  description String
+  videoUrl    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Enrollments {
+  id         String   @id @default(uuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  courseId   String
+  course     Courses  @relation(fields: [courseId], references: [id])
+  progress   Int      @default(0)
+  completed  Boolean  @default(false)
+  enrolledAt DateTime @default(now())
+}
