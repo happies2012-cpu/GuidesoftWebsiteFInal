@@ -1,6 +1,8 @@
-# Welcome to your Lovable project
+# Guidesoft Website
 
-## Project info
+A modern, full-stack web application for Guidesoft - offering cutting-edge AI, software development, and business consulting services.
+
+## Project Info
 
 **URL**: https://lovable.dev/projects/79ab1478-097e-4ecf-9dcd-ebf8bdf8af7b
 
