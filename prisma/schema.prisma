@@ -22,6 +22,9 @@ model User {
   aiTools     AITool[]
   courses     Courses[]
   enrollments Enrollments[]
+  aiEnrollments AIEnrollments[]
+
+  @@map("users")
 }
 
 enum Role {
@@ -69,12 +72,12 @@ model AITool {
   updatedAt   DateTime @updatedAt
   authorId    String
   author      User     @relation(fields: [authorId], references: [id])
+  enrollments AIEnrollments[]
 
   @@index([name])
   @@index([category])
   @@index([tags])
   @@index([featured])
-  @@fulltext([name, description, tags])
 }
 
 model FormSubmission {
