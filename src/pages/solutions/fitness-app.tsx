@@ -3,8 +3,9 @@
 import React from 'react';
 import { motion, Easing } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Activity, Code, Shield, Zap, Users, Target } from 'lucide-react';
+import { Dumbbell, Heart, Activity, Target, User, Calendar, BarChart, MessageCircle, Settings, Zap, MapPin, Camera, Apple, Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { getHeroImage } from "@/lib/image-utils";
 
 const FitnessApp = () => {
   const containerVariants = {
@@ -20,35 +21,77 @@ const FitnessApp = () => {
 
   const features = [
     {
-      icon: Code,
-      title: "Wearable Integration",
-      description: "Seamless connection with fitness trackers, smartwatches, and health devices for accurate data tracking.",
+      icon: Dumbbell,
+      title: "Workout Plans",
+      description: "Customizable training programs with video demonstrations and progress tracking for all fitness levels.",
+    },
+    {
+      icon: Heart,
+      title: "Health Monitoring",
+      description: "Track heart rate, calories burned, and other vital health metrics with integrated wearable device support.",
     },
     {
       icon: Activity,
-      title: "Personalized Workouts",
-      description: "AI-driven workout plans based on user goals, fitness level, and progress tracking.",
-    },
-    {
-      icon: Shield,
-      title: "Health Data Security",
-      description: "HIPAA-compliant data handling with encryption and secure cloud storage for sensitive health information.",
-    },
-    {
-      icon: Zap,
-      title: "Real-Time Tracking",
-      description: "Live workout monitoring with heart rate, calories burned, and performance metrics.",
-    },
-    {
-      icon: Users,
-      title: "Community Features",
-      description: "Social challenges, leaderboards, and group workouts to motivate and engage users.",
+      title: "Activity Tracking",
+      description: "Comprehensive activity monitoring including steps, distance, and active minutes with detailed analytics.",
     },
     {
       icon: Target,
-      title: "Custom Fitness Solutions",
-      description: "Tailored for gyms, personal trainers, wellness brands, and specialized fitness programs.",
+      title: "Goal Setting",
+      description: "Personalized fitness goals with milestone tracking and achievement rewards to maintain motivation.",
     },
+    {
+      icon: User,
+      title: "Personal Training",
+      description: "Connect with certified trainers for virtual sessions and personalized coaching through the app.",
+    },
+    {
+      icon: Calendar,
+      title: "Schedule Management",
+      description: "Plan workouts, set reminders, and sync with calendar apps for consistent fitness routines.",
+    },
+    {
+      icon: BarChart,
+      title: "Progress Analytics",
+      description: "Detailed performance reports and trend analysis to visualize fitness improvements over time.",
+    },
+    {
+      icon: MessageCircle,
+      title: "Community Support",
+      description: "Social features to connect with friends, join challenges, and share achievements for accountability.",
+    }
+  ];
+
+  const fitnessFeatures = [
+    {
+      title: "Nutrition Tracking",
+      description: "Log meals, track macros, and receive personalized nutrition recommendations based on goals.",
+      icon: Apple
+    },
+    {
+      title: "Video Workouts",
+      description: "Access to thousands of on-demand workout videos led by professional trainers for all fitness levels.",
+      icon: Play
+    },
+    {
+      title: "GPS Tracking",
+      description: "Accurate distance and route tracking for running, cycling, and outdoor activities with mapping integration.",
+      icon: MapPin
+    },
+    {
+      title: "Photo Progress",
+      description: "Visual progress tracking with photo comparison tools to see physical transformation over time.",
+      icon: Camera
+    }
+  ];
+
+  const benefits = [
+    "Increase user retention by 45%",
+    "Boost workout completion rates by 30%",
+    "Enhance user engagement with social features",
+    "Generate revenue through premium subscriptions",
+    "Scale to millions of active users",
+    "Reduce churn with personalized experiences"
   ];
 
   return (
@@ -65,14 +108,14 @@ const FitnessApp = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={containerVariants} className="space-y-6">
               <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Fitness App Solution
+                Fitness App Solutions
               </h1>
               <p className="text-xl text-muted-foreground max-w-lg">
-                Guidesoft creates comprehensive fitness applications that motivate users, track progress, and integrate with wearable devices to support healthy lifestyles and fitness goals.
+                Create engaging fitness applications that motivate users to achieve their health and wellness goals. Our solutions combine cutting-edge technology with proven fitness methodologies.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="px-8 bg-gradient-to-r from-primary to-secondary">
-                  Get a Quote
+                  Build Your Fitness App
                 </Button>
                 <Button size="lg" variant="outline">
                   View Portfolio
@@ -81,7 +124,7 @@ const FitnessApp = () => {
             </motion.div>
             <motion.div variants={containerVariants} className="relative">
               <img
-                src="/placeholder.svg" // Replace with actual fitness app mockup image
+                src={getHeroImage('fitness-app')}
                 alt="Fitness App Solution"
                 className="w-full h-96 object-cover rounded-2xl shadow-2xl"
               />
@@ -100,14 +143,14 @@ const FitnessApp = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Why Choose Guidesoft for Fitness Apps?
+              Comprehensive Fitness Features
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Our fitness platforms combine gamification, data analytics, and user-centric design to create engaging apps that drive long-term user retention and health outcomes.
+              Everything needed to create engaging and effective digital fitness experiences.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -135,17 +178,97 @@ const FitnessApp = () => {
         </div>
       </section>
 
+      {/* Fitness Features Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Enhanced Fitness Experience
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Advanced features designed to maximize user engagement and fitness results.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {fitnessFeatures.map((feature, index) => (
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                whileHover="hover"
+              >
+                <Card className="h-full border-primary/20">
+                  <CardHeader>
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                      <feature.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <CardTitle className="text-xl font-semibold">{feature.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Business Advantages
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Measurable improvements in user engagement and business growth.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {benefits.map((benefit, index) => (
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                whileHover="hover"
+                className="flex items-center space-x-3 p-4 bg-muted/50 rounded-lg"
+              >
+                <BarChart className="h-6 w-6 text-primary flex-shrink-0" />
+                <span className="font-medium">{benefit}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary to-secondary text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Empower Healthy Living
+            Ready to Create the Next Fitness Sensation?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Build your fitness platform with Guidesoft's expertise in health tech. Let's create apps that inspire wellness.
+            Build a fitness app that motivates users and drives measurable health improvements.
           </p>
-          <Button size="lg" className="px-8 text-lg">
-            Start Your Project
+          <Button size="lg" className="px-8 text-lg bg-white text-primary hover:bg-gray-100">
+            Start Your Fitness Project
           </Button>
         </div>
       </section>

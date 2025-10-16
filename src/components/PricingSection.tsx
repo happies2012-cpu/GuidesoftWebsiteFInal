@@ -6,8 +6,8 @@ import PaymentComponent from "@/components/PaymentComponent";
 const demoPlans = [
   {
     name: "STARTER",
-    price: "50",
-    yearlyPrice: "40",
+    price: "250",
+    yearlyPrice: "200",
     period: "per month",
     features: [
       "Up to 10 projects",
@@ -23,8 +23,8 @@ const demoPlans = [
   },
   {
     name: "PROFESSIONAL",
-    price: "99",
-    yearlyPrice: "79",
+    price: "500",
+    yearlyPrice: "400",
     period: "per month",
     features: [
       "Unlimited projects",
@@ -42,8 +42,8 @@ const demoPlans = [
   },
   {
     name: "ENTERPRISE",
-    price: "299",
-    yearlyPrice: "239",
+    price: "1000",
+    yearlyPrice: "800",
     period: "per month",
     features: [
       "Everything in Professional",
@@ -71,15 +71,6 @@ const PricingSection = () => {
         description="Choose the plan that works for you
 All plans include access to our platform, lead generation tools, and dedicated support."
       />
-      <div className="mt-12 text-center">
-        <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
-        <PaymentComponent 
-          amount={99} 
-          description="Professional Plan - Monthly Subscription" 
-          onSuccess={() => console.log('Payment successful!')} 
-          onFailure={() => console.log('Payment failed.')}
-        />
-      </div>
     </section>
   );
 };

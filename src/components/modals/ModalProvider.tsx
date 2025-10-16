@@ -113,9 +113,9 @@ export const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
       case 'contact': return 'Get in Touch';
       case 'quote': return 'Request a Quote';
       case 'payment': return 'Complete Payment';
-      case 'consultation': return 'Book Free Consultation';
+      case 'consultation': return 'Book Consultation';
       case 'demo': return 'Schedule a Demo';
-      case 'trial': return 'Start Free Trial';
+      case 'trial': return 'Start Trial';
       case 'newsletter': return 'Subscribe to Newsletter';
       case 'services': return 'Explore Our Services';
       default: return 'Contact Us';
@@ -129,12 +129,13 @@ export const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
       case 'contact': return 'Let us know how we can help you achieve your goals.';
       case 'quote': return 'Get a personalized quote for your project requirements.';
       case 'payment': return 'Secure payment processing for your selected plan.';
-      case 'consultation': return 'Schedule a free 30-minute consultation with our experts.';
+      case 'consultation': return 'Schedule a 30-minute consultation with our experts.';
       case 'demo': return 'See our solutions in action with a personalized demo.';
-      case 'trial': return 'Start your free trial and experience our platform.';
+      case 'trial': return 'Start your trial and experience our platform.';
       case 'newsletter': return 'Stay updated with the latest in AI and technology.';
       case 'services': return 'Discover how our services can transform your business.';
       default: return 'We are here to help you succeed.';
+
     }
   };
 
@@ -605,8 +606,7 @@ const TrialForm: React.FC<{ onSubmit: (data: any) => void }> = ({ onSubmit }) =>
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: '',
-    password: ''
+    company: ''
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -643,22 +643,12 @@ const TrialForm: React.FC<{ onSubmit: (data: any) => void }> = ({ onSubmit }) =>
           onChange={(e) => setFormData({...formData, company: e.target.value})}
         />
       </div>
-      <div>
-        <Label htmlFor="password">Password *</Label>
-        <Input
-          id="password"
-          type="password"
-          required
-          value={formData.password}
-          onChange={(e) => setFormData({...formData, password: e.target.value})}
-        />
-      </div>
       <Button type="submit" className="w-full bg-gradient-to-r from-primary to-secondary">
         <Star className="w-4 h-4 mr-2" />
-        Start Free Trial
+        Start Trial
       </Button>
       <p className="text-xs text-muted-foreground text-center">
-        No credit card required. 14-day free trial.
+        No credit card required. 14-day trial.
       </p>
     </form>
   );

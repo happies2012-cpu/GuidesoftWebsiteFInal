@@ -443,9 +443,10 @@ const UiUxDesignDevelopment = () => {
           <p className="text-xl mb-8 max-w-2xl mx-auto">Let's design and develop a digital product that your users will love.</p>
           <Link to="/contact">
             <Button size="lg" className="px-8 bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-lg">
-              Get a Free Design Consultation
+              Get a Design Consultation
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
+
           </Link>
         </div>
       </motion.section>

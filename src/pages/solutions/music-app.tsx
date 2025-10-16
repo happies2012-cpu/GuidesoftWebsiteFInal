@@ -5,6 +5,7 @@ import { motion, Easing } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Music, Code, Shield, Zap, Users, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { getHeroImage } from "@/lib/image-utils";
 
 const MusicApp = () => {
   const containerVariants = {
@@ -81,7 +82,7 @@ const MusicApp = () => {
             </motion.div>
             <motion.div variants={containerVariants} className="relative">
               <img
-                src="/placeholder.svg" // Replace with actual music app mockup image
+                src={getHeroImage('music-app')} // Replace with actual music app mockup image
                 alt="Music App Solution"
                 className="w-full h-96 object-cover rounded-2xl shadow-2xl"
               />

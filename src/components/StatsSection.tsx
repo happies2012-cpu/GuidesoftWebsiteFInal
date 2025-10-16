@@ -2,11 +2,12 @@
 
 import { Users, Award, TrendingUp, Globe } from "lucide-react";
 import teamMeeting from "@/assets/team-meeting.jpg";
+import SmartImage from "@/components/ui/SmartImage";
 import { motion, Easing } from "framer-motion"; // Import motion and Easing
 
 const StatsSection = () => {
   const stats = [
-    { icon: Users, number: "256+", label: "Global Clients" },
+    { icon: Users, number: "256+", label: "AI Workflows " },
     { icon: Award, number: "15+", label: "Years Experience" },
     { icon: TrendingUp, number: "98%", label: "Success Rate" },
     { icon: Globe, number: "25+", label: "Countries" }
@@ -45,7 +46,7 @@ const StatsSection = () => {
           {/* Image */}
           <motion.div variants={imageVariants} className="relative">
             <div className="relative rounded-lg shadow-xl w-full h-96 object-cover overflow-hidden border border-primary/20 backdrop-blur-sm bg-background/20">
-              <img
+              <SmartImage
                 src={teamMeeting}
                 alt="Professional team meeting"
                 className="w-full h-full object-cover"
@@ -57,7 +58,7 @@ const StatsSection = () => {
                 className="absolute -bottom-6 -right-6 bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end text-primary-foreground p-6 rounded-lg shadow-lg border border-primary/30 backdrop-blur-sm"
               >
                 <div className="text-2xl font-bold">256+</div>
-                <div className="text-sm">Global Clients</div>
+                <div className="text-sm">AI Workflows </div>
               </motion.div>
             </div>
           </motion.div>
@@ -67,7 +68,7 @@ const StatsSection = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-gradient-primary-start via-gradient-primary-end to-cyan-500 bg-clip-text text-transparent">
               We've More Than
               <br />
-              <span className="text-primary">256+ Global Clients</span>
+              <span className="text-primary">256+ AI Workflows </span>
             </h2>
             
             <p className="text-muted-foreground mb-8 text-lg leading-relaxed">

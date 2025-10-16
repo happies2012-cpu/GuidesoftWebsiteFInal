@@ -2,30 +2,69 @@
 
 import { Button } from "@/components/ui/button";
 import React from "react";
+// Import Lucide icons (correct names)
+import { 
+  // Web Technologies
+  Code, Type, Server, Bot, Cpu, Brain,
+  // Cloud Platforms
+  Cloud, CloudCog, ServerCog,
+  // DevOps Tools
+  Box, Layers,
+  // Databases
+  Database, HardDrive,
+  // Frontend Frameworks
+  Monitor, Smartphone,
+  // Version Control
+  GitBranch, Github,
+  // Communication/Message Queues
+  MessageSquare, Radio,
+  // Monitoring/Logging
+  BarChart, Activity
+} from "lucide-react";
 
-// Technology and AI tools icons - using techicons.dev for high-quality SVG icons
+// Technology and AI tools icons - using Lucide icons
 const ICONS_ROW1 = [
-  "https://techicons.dev/icons/react",
-  "https://techicons.dev/icons/typescript", 
-  "https://techicons.dev/icons/nodejs",
-  "https://techicons.dev/icons/python",
-  "https://techicons.dev/icons/tensorflow",
-  "https://techicons.dev/icons/openai",
-  "https://techicons.dev/icons/docker",
+  { icon: Code, name: "React" },
+  { icon: Type, name: "TypeScript" },
+  { icon: Server, name: "Node.js" },
+  { icon: Bot, name: "Python" },
+  { icon: Cpu, name: "JavaScript" },
+  { icon: Monitor, name: "Vue.js" },
+  { icon: Layers, name: "Angular" },
+  { icon: Smartphone, name: "Mobile" },
+  { icon: Bot, name: "AI/ML" },
+  { icon: Cpu, name: "Neural Networks" },
 ];
 
 const ICONS_ROW2 = [
-  "https://techicons.dev/icons/kubernetes",
-  "https://techicons.dev/icons/aws",
-  "https://techicons.dev/icons/googlecloud",
-  "https://techicons.dev/icons/pytorch",
-  "https://techicons.dev/icons/langchain",
-  "https://techicons.dev/icons/jupyter",
-  "https://techicons.dev/icons/mongodb",
+  { icon: Cloud, name: "AWS" },
+  { icon: CloudCog, name: "Google Cloud" },
+  { icon: ServerCog, name: "Azure" },
+  { icon: Box, name: "Docker" },
+  { icon: Layers, name: "Kubernetes" },
+  { icon: Database, name: "MongoDB" },
+  { icon: HardDrive, name: "PostgreSQL" },
+  { icon: Database, name: "MySQL" },
+  { icon: Cpu, name: "TensorFlow" },
+  { icon: Brain, name: "PyTorch" },
+];
+
+const ICONS_ROW3 = [
+  { icon: Smartphone, name: "Android" },
+  { icon: Monitor, name: "iOS" },
+  { icon: GitBranch, name: "Git" },
+  { icon: Github, name: "GitHub" },
+  { icon: MessageSquare, name: "RabbitMQ" },
+  { icon: Radio, name: "Redis" },
+  { icon: BarChart, name: "Analytics" },
+  { icon: Activity, name: "Monitoring" },
+  { icon: Database, name: "Data Engineering" },
+  { icon: Bot, name: "Automation" },
 ];
 
 // Utility to repeat icons enough times
-const repeatedIcons = (icons: string[], repeat = 4) => Array.from({ length: repeat }).flatMap(() => icons);
+const repeatedIcons = (icons: { icon: React.FC<any>, name: string }[], repeat = 3) => 
+  Array.from({ length: repeat }).flatMap(() => icons);
 
 export default function IntegrationHero() {
   return (
@@ -63,26 +102,36 @@ export default function IntegrationHero() {
         {/* Carousel */}
         <div className="mt-12 overflow-hidden relative pb-2">
           {/* Row 1 */}
-          <div className="flex gap-10 whitespace-nowrap animate-scroll-left">
-            {repeatedIcons(ICONS_ROW1, 4).map((src, i) => (
-              <div key={i} className="h-16 w-16 flex-shrink-0 rounded-full bg-background/80 dark:bg-muted/50 shadow-md border border-primary/20 flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                <img 
-                  src={src} 
-                  alt="technology icon" 
-                  className="h-10 w-10 object-contain opacity-90 hover:opacity-100 transition-opacity" 
+          <div className="flex gap-8 whitespace-nowrap animate-scroll-left">
+            {repeatedIcons(ICONS_ROW1, 3).map((item, i) => (
+              <div key={i} className="h-20 w-20 flex-shrink-0 rounded-full bg-background/80 dark:bg-muted/50 shadow-md border border-primary/20 flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                <item.icon 
+                  size={48}
+                  className="text-primary opacity-90 hover:opacity-100 transition-opacity" 
                 />
               </div>
             ))}
           </div>
 
           {/* Row 2 */}
-          <div className="flex gap-10 whitespace-nowrap mt-6 animate-scroll-right">
-            {repeatedIcons(ICONS_ROW2, 4).map((src, i) => (
-              <div key={i} className="h-16 w-16 flex-shrink-0 rounded-full bg-background/80 dark:bg-muted/50 shadow-md border border-primary/20 flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                <img 
-                  src={src} 
-                  alt="technology icon" 
-                  className="h-10 w-10 object-contain opacity-90 hover:opacity-100 transition-opacity" 
+          <div className="flex gap-8 whitespace-nowrap mt-6 animate-scroll-right">
+            {repeatedIcons(ICONS_ROW2, 3).map((item, i) => (
+              <div key={i} className="h-20 w-20 flex-shrink-0 rounded-full bg-background/80 dark:bg-muted/50 shadow-md border border-primary/20 flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                <item.icon 
+                  size={48}
+                  className="text-primary opacity-90 hover:opacity-100 transition-opacity" 
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Row 3 */}
+          <div className="flex gap-8 whitespace-nowrap mt-6 animate-scroll-left">
+            {repeatedIcons(ICONS_ROW3, 3).map((item, i) => (
+              <div key={i} className="h-20 w-20 flex-shrink-0 rounded-full bg-background/80 dark:bg-muted/50 shadow-md border border-primary/20 flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                <item.icon 
+                  size={48}
+                  className="text-primary opacity-90 hover:opacity-100 transition-opacity" 
                 />
               </div>
             ))}
@@ -93,8 +142,6 @@ export default function IntegrationHero() {
           <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-background to-transparent pointer-events-none" />
         </div>
       </div>
-
-
     </section>
   );
 }

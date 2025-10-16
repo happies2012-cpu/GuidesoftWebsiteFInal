@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { TrendingUp, Target, Users, Lightbulb } from "lucide-react";
 import { motion, Easing } from "framer-motion";
+import heroBg from "@/assets/hero-bg.jpg";
+import teamMeeting from "@/assets/team-meeting.jpg";
 
 const HomeBusiness = () => {
   const services = [
@@ -55,7 +57,7 @@ const HomeBusiness = () => {
         transition={{ duration: 0.8 }}
         className="relative min-h-screen flex items-center bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3')"
+          backgroundImage: `linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url('${heroBg}')`
         }}
       >
         <div className="container mx-auto px-4 relative z-10">

@@ -69,6 +69,12 @@ model AITool {
   updatedAt   DateTime @updatedAt
   authorId    String
   author      User     @relation(fields: [authorId], references: [id])
+
+  @@index([name])
+  @@index([category])
+  @@index([tags])
+  @@index([featured])
+  @@fulltext([name, description, tags])
 }
 
 model FormSubmission {
@@ -116,6 +122,10 @@ model Courses {
   updatedAt      DateTime           @updatedAt
   lessons        CourseLessons[]
   enrollments    Enrollments[]
+
+  @@index([categoryId])
+  @@index([isPublished])
+  @@index([level])
 }
 
 model CourseLessons {
@@ -127,6 +137,8 @@ model CourseLessons {
   videoUrl    String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+
+  @@index([courseId])
 }
 
 model Enrollments {
@@ -138,4 +150,34 @@ model Enrollments {
   progress   Int      @default(0)
   completed  Boolean  @default(false)
   enrolledAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([courseId])
+  @@unique([userId, courseId])
+}
+
+// New model for AI tool enrollments
+model AIEnrollments {
+  id           String   @id @default(uuid())
+  userId       String?
+  toolId       String
+  tool         AITool   @relation(fields: [toolId], references: [id])
+  name         String
+  email        String
+  phone        String
+  linkedin     String?
+  aadhar       String
+  pan          String
+  message      String?
+  isVerified   Boolean  @default(false)
+  isPaid       Boolean  @default(false)
+  transactionId String?
+  enrolledAt   DateTime @default(now())
+  user         User?    @relation(fields: [userId], references: [id])
+
+  @@index([toolId])
+  @@index([email])
+  @@index([phone])
+  @@index([isVerified])
+  @@index([isPaid])
 }

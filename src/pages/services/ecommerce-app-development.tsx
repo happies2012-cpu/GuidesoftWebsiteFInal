@@ -5,6 +5,7 @@ import { motion, Easing } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ShoppingCart, Code, CreditCard, Shield, Zap, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { getHeroImage } from "@/lib/image-utils";
 
 const EcommerceAppDevelopment = () => {
   const containerVariants = {
@@ -81,7 +82,7 @@ const EcommerceAppDevelopment = () => {
             </motion.div>
             <motion.div variants={containerVariants} className="relative">
               <img
-                src="/placeholder.svg" // Replace with actual e-commerce app mockup image
+                src={getHeroImage('ecommerce-app')} // Replace with actual e-commerce app mockup image
                 alt="E-commerce App Development"
                 className="w-full h-96 object-cover rounded-2xl shadow-2xl"
               />

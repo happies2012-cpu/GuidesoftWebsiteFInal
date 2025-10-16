@@ -267,3 +267,190 @@ const TravelBookingEngine = () => {
         variants={containerVariants}
         className="py-20 relative"
       >
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              Travel Booking Engine Projects
+            </h2>
+            <p className="text-xl text-foreground max-w-2xl mx-auto">
+              Success stories from our travel technology implementations
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {portfolioProjects.map((project, index) => (
+              <motion.div key={index} variants={cardVariants} whileHover="hover">
+                <Card className="bg-background/40 backdrop-blur-xl border-primary/20 hover:border-primary/50 transition-all h-full group">
+                  <CardContent className="p-6">
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-semibold mb-2 text-foreground group-hover:text-primary">{project.title}</h3>
+                      <p className="text-foreground/90">{project.description}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tech.map((tag) => (
+                          <Badge key={tag} variant="outline" className="text-xs border-primary/30">
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                      <div className="flex items-center justify-between pt-4 border-t border-primary/10">
+                        <Badge className="bg-gradient-to-r from-blue-600 to-indigo-600">
+                          {project.result}
+                        </Badge>
+                        <Button variant="ghost" size="sm" className="group-hover:text-primary">
+                          View Case Study <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* 6. Blogs Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={containerVariants}
+        className="py-20 bg-muted/30 relative"
+      >
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              Travel Technology Insights
+            </h2>
+            <p className="text-xl text-foreground max-w-2xl mx-auto">
+              Trends and best practices in travel booking technology
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { title: "Optimizing Travel Booking Engines for Peak Performance", excerpt: "How to ensure your booking engine handles high traffic during peak travel seasons without performance degradation.", date: "August 12, 2024" },
+              { title: "The Future of Multi-GDS Integration in Travel Tech", excerpt: "Exploring the latest trends in global distribution system integration and how they impact booking experiences.", date: "August 8, 2024" },
+              { title: "Mobile-First Design for Travel Booking Applications", excerpt: "Best practices for creating intuitive mobile booking experiences that drive conversions and customer satisfaction.", date: "August 5, 2024" }
+            ].map((blog, index) => (
+              <motion.div key={index} variants={cardVariants} whileHover="hover">
+                <Card className="bg-background/40 backdrop-blur-xl border-primary/20 hover:border-primary/50 transition-all h-full group cursor-pointer">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Calendar className="h-4 w-4 text-primary" />
+                      <span className="text-sm text-foreground/80">{blog.date}</span>
+                    </div>
+                    <h3 className="text-lg font-semibold mb-2 text-foreground group-hover:text-primary line-clamp-2">{blog.title}</h3>
+                    <p className="text-sm text-foreground/90 line-clamp-3">{blog.excerpt}</p>
+                    <Button variant="ghost" size="sm" className="mt-4 group-hover:text-primary p-0 h-auto">
+                      Read More <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <Link to="/blog">
+              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:opacity-90">
+                Explore All Blogs
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* 7. Details Block */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={containerVariants}
+        className="py-20 relative"
+      >
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {/* FAQs */}
+            <div>
+              <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                Frequently Asked Questions
+              </h3>
+              <Accordion type="single" collapsible className="w-full">
+                {faqs.map((faq, index) => (
+                  <AccordionItem key={index} value={`item-${index}`} className="border-primary/20">
+                    <AccordionTrigger className="text-left hover:no-underline h-auto p-4 text-foreground">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="p-4 pt-0 text-foreground/90">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+
+            {/* Stats */}
+            <div className="space-y-8">
+              <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                Our Travel Tech Stats
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {[
+                  { icon: Building, number: "150+", label: "Travel Platforms Built" },
+                  { icon: Users, number: "5M+", label: "Monthly Bookings Processed" },
+                  { icon: Award, number: "98%", label: "Client Retention Rate" }
+                ].map((stat, index) => (
+                  <motion.div key={index} variants={cardVariants} className="text-center p-6 bg-background/40 rounded-lg border border-primary/20">
+                    <stat.icon className="h-8 w-8 text-primary mx-auto mb-2" />
+                    <div className="text-3xl font-bold text-foreground">{stat.number}</div>
+                    <p className="text-foreground/90">{stat.label}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Testimonials */}
+            <div>
+              <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                What Our Clients Say
+              </h3>
+              <div className="space-y-6">
+                {testimonials.map((testimonial, index) => (
+                  <motion.div key={index} variants={cardVariants} className="p-6 bg-background/40 rounded-lg border border-primary/20 italic">
+                    <p className="text-foreground/90 mb-4">"{testimonial.quote}"</p>
+                    <div>
+                      <p className="font-semibold text-foreground">{testimonial.author}</p>
+                      <p className="text-sm text-primary">{testimonial.role}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Final CTA */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={containerVariants}
+        className="py-20 bg-primary text-primary-foreground relative overflow-hidden"
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-indigo-600/20 to-purple-600/20" />
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Launch Your Travel Booking Engine?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">Partner with us to build a powerful, scalable booking platform that drives conversions and enhances customer experiences.</p>
+          <Link to="/contact">
+            <Button size="lg" className="px-8 bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-lg">
+              Start Your Project
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
+        </div>
+      </motion.section>
+    </div>
+  );
+};
+
+export default TravelBookingEngine;

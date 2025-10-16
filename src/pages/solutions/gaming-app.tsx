@@ -5,6 +5,7 @@ import { motion, Easing } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Gamepad2, Code, Shield, Zap, Users, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { getHeroImage } from "@/lib/image-utils";
 
 const GamingApp = () => {
   const containerVariants = {
@@ -81,7 +82,7 @@ const GamingApp = () => {
             </motion.div>
             <motion.div variants={containerVariants} className="relative">
               <img
-                src="/placeholder.svg" // Replace with actual gaming app mockup image
+                src={getHeroImage('gaming-app')} // Replace with actual gaming app mockup image
                 alt="Gaming App Solution"
                 className="w-full h-96 object-cover rounded-2xl shadow-2xl"
               />

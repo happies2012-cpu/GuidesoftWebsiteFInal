@@ -5,9 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, Phone, Mail, Clock, Send, Sparkles, MessageSquare, Zap } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { MapPin, Phone, Mail, Clock, Send, Sparkles, MessageSquare, Zap, Brain, Users, Target, Calendar } from "lucide-react";
 import { toast } from "sonner";
 import { motion, Easing } from "framer-motion";
+import { Link } from "react-router-dom";
+import { getHeroImage } from "@/lib/image-utils";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -27,7 +30,7 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success("Message Received!", {
-      description: "Our AI team will analyze your inquiry and respond within 2 hours.",
+      description: "Our team will review your inquiry and respond within 2 hours.",
     });
     setFormData({
       name: "",
@@ -40,38 +43,39 @@ const Contact = () => {
   };
 
   const services = [
-    "AI-Powered Tax Solutions",
-    "Digital Advisory Services",
-    "Strategic AI Planning",
-    "Intelligent Finance Planning",
-    "Robo-Advisory Platform",
-    "Digital Retirement Solutions",
-    "Custom AI Development"
+    "Custom Software Development",
+    "Mobile App Development",
+    "Web Development",
+    "AI & Machine Learning Solutions",
+    "Cloud Infrastructure",
+    "Data Engineering & Analytics",
+    "Digital Transformation Consulting",
+    "UI/UX Design"
   ];
 
   const contactInfo = [
     {
       icon: MapPin,
-      title: "Global HQ",
-      details: ["Inner Ring Road, Near to Vijayadigitals,", "Gorantla, Guntur, AP, INDIA"],
+      title: "Global Headquarters",
+      details: ["Innovation District, Tech Park", "San Francisco, CA 94103", "United States"],
       gradient: "from-blue-500 to-cyan-500"
     },
-     {
-       icon: Phone,
-       title: "Contact Information",
-       details: ["support@guideitsol.com", "contact@guideitsol.com"],
-       gradient: "from-purple-500 to-pink-500"
-     },
+    {
+      icon: Phone,
+      title: "Direct Contact",
+      details: ["+1 (555) 123-4567", "Mon-Fri 9:00 AM - 6:00 PM PST"],
+      gradient: "from-purple-500 to-pink-500"
+    },
     {
       icon: Mail,
-      title: "Digital Contact",
-      details: ["AI Support: support@guideitsol.com", "Business: contact@guideitsol.com", "Careers: talent@guideitsol.com"],
+      title: "Email Communication",
+      details: ["hello@yourcompany.com", "support@yourcompany.com", "careers@yourcompany.com"],
       gradient: "from-emerald-500 to-teal-500"
     },
     {
       icon: Clock,
-      title: "24/7 AI Support",
-      details: ["AI Chat: Always Available", "Human Support: 8am - 10pm EST", "Weekend: AI-Assisted"],
+      title: "Support Hours",
+      details: ["24/7 Technical Support", "Live Chat: Available", "Emergency Response: 30 min"],
       gradient: "from-orange-500 to-red-500"
     }
   ];
@@ -103,14 +107,54 @@ const Contact = () => {
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20 mb-8 animate-fade-in">
             <MessageSquare className="h-4 w-4 text-primary" />
-            <span className="text-sm font-medium text-primary">24/7 AI-Powered Support</span>
+            <span className="text-sm font-medium text-primary">Get In Touch</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-gradient-primary-start via-gradient-primary-end to-cyan-500 bg-clip-text text-transparent animate-fade-in">
             Let's Connect
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in">
-            Start your AI transformation journey today with instant support from our intelligent systems
+            Ready to transform your business with cutting-edge technology solutions? We're here to help you succeed.
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+            <Button size="lg" className="px-8 bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end hover:opacity-90 transition-opacity shadow-lg">
+              Schedule a Call
+            </Button>
+            <Button size="lg" variant="outline" className="px-8 border-primary/30 hover:bg-primary/10 backdrop-blur-sm">
+              View Our Services
+            </Button>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Stats Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={containerVariants}
+        className="py-16 relative"
+      >
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {[
+              { icon: Users, value: "500+", label: "Ready Workflow with AI", gradient: "from-blue-500 to-cyan-500" },
+              { icon: Brain, value: "50+", label: "AI & Gen AI Integration", gradient: "from-purple-500 to-pink-500" },
+              { icon: Target, value: "98%", label: "Client Satisfaction", gradient: "from-emerald-500 to-teal-500" },
+              { icon: Calendar, value: "24/7", label: "Support Available", gradient: "from-orange-500 to-red-500" }
+            ].map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <motion.div key={index} variants={cardVariants} whileHover="hover" transition={{ delay: index * 0.1 }} className="group relative">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-10 rounded-2xl blur-xl group-hover:opacity-20 transition-opacity`} />
+                  <div className="relative p-8 rounded-2xl bg-background/40 backdrop-blur-xl border border-primary/20 group-hover:border-primary/50 transition-all">
+                    <Icon className="h-8 w-8 text-primary mb-4" />
+                    <div className="text-4xl font-bold text-foreground mb-2">{stat.value}</div>
+                    <div className="text-muted-foreground">{stat.label}</div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </motion.section>
 
@@ -134,8 +178,8 @@ const Contact = () => {
                       <Send className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-foreground">Send Message</h2>
-                      <p className="text-sm text-muted-foreground">AI-powered response system</p>
+                      <h2 className="text-2xl font-bold text-foreground">Send Us a Message</h2>
+                      <p className="text-sm text-muted-foreground">We'll get back to you within 2 hours</p>
                     </div>
                   </div>
                   
@@ -206,7 +250,7 @@ const Contact = () => {
                     
                     <div>
                       <label htmlFor="service" className="block text-sm font-medium text-foreground mb-2">
-                        AI Service Interest
+                        Service Interest
                       </label>
                       <select
                         id="service"
@@ -234,7 +278,7 @@ const Contact = () => {
                         required
                         value={formData.message}
                         onChange={handleInputChange}
-                        placeholder="Tell us about your AI transformation goals..."
+                        placeholder="Tell us about your project requirements and goals..."
                         rows={6}
                         className="bg-background/50 backdrop-blur-sm border-primary/20 focus:border-primary/50"
                       />
@@ -256,39 +300,42 @@ const Contact = () => {
                   Contact Channels
                 </h2>
                 <p className="text-muted-foreground">
-                  Multiple ways to connect with our AI-powered support team
+                  Multiple ways to connect with our expert team
                 </p>
               </div>
               
-              {contactInfo.map((info, index) => (
-                <motion.div key={index} variants={cardVariants} whileHover="hover" transition={{ delay: index * 0.1 }}>
-                  <Card 
-                    className="relative overflow-hidden backdrop-blur-xl bg-background/40 border-primary/20 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_-5px_hsl(var(--gradient-primary-start)/0.5)] group"
-                  >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${info.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-                    <CardContent className="p-6 relative z-10">
-                      <div className="flex items-start gap-4">
-                        <div className="relative flex-shrink-0">
-                          <div className={`absolute inset-0 bg-gradient-to-br ${info.gradient} rounded-xl opacity-20 blur-xl`} />
-                          <div className={`relative w-12 h-12 bg-gradient-to-br ${info.gradient} rounded-xl flex items-center justify-center shadow-lg`}>
-                            <info.icon className="h-6 w-6 text-white" />
+              {contactInfo.map((info, index) => {
+                const Icon = info.icon;
+                return (
+                  <motion.div key={index} variants={cardVariants} whileHover="hover" transition={{ delay: index * 0.1 }}>
+                    <Card 
+                      className="relative overflow-hidden backdrop-blur-xl bg-background/40 border-primary/20 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_-5px_hsl(var(--gradient-primary-start)/0.5)] group"
+                    >
+                      <div className={`absolute inset-0 bg-gradient-to-br ${info.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                      <CardContent className="p-6 relative z-10">
+                        <div className="flex items-start gap-4">
+                          <div className="relative flex-shrink-0">
+                            <div className={`absolute inset-0 bg-gradient-to-br ${info.gradient} rounded-xl opacity-20 blur-xl`} />
+                            <div className={`relative w-12 h-12 bg-gradient-to-br ${info.gradient} rounded-xl flex items-center justify-center shadow-lg`}>
+                              <Icon className="h-6 w-6 text-white" />
+                            </div>
+                          </div>
+                          <div>
+                            <h3 className="font-semibold text-foreground mb-2">{info.title}</h3>
+                            <div className="space-y-1">
+                              {info.details.map((detail, detailIndex) => (
+                                <p key={detailIndex} className="text-sm text-muted-foreground">
+                                  {detail}
+                                </p>
+                              ))}
+                            </div>
                           </div>
                         </div>
-                        <div>
-                          <h3 className="font-semibold text-foreground mb-2">{info.title}</h3>
-                          <div className="space-y-1">
-                            {info.details.map((detail, detailIndex) => (
-                              <p key={detailIndex} className="text-sm text-muted-foreground">
-                                {detail}
-                              </p>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -308,17 +355,17 @@ const Contact = () => {
           <div className="max-w-3xl mx-auto p-12 rounded-3xl bg-background/10 backdrop-blur-xl border border-primary/20 shadow-[0_0_60px_-15px_hsl(var(--gradient-primary-start)/0.5)]">
             <Sparkles className="h-12 w-12 text-primary mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gradient-primary-start via-gradient-primary-end to-cyan-500 bg-clip-text text-transparent">
-              Instant AI Consultation
+              Ready to Start Your Project?
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Get immediate answers from our AI assistant or schedule a call with our expert team
+              Let's discuss how our technology solutions can help you achieve your business objectives
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="px-8 bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end hover:opacity-90 transition-opacity shadow-lg">
-                Chat with AI Now
+                Schedule a Consultation
               </Button>
               <Button size="lg" variant="outline" className="px-8 border-primary/30 hover:bg-primary/10 backdrop-blur-sm">
-                Schedule Human Call
+                View Our Portfolio
               </Button>
             </div>
           </div>

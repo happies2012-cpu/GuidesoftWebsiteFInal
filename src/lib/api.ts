@@ -4,6 +4,65 @@ import axios from 'axios';
 const API_URL = import.meta.env.VITE_API_URL || 
   (import.meta.env.DEV ? '/api' : 'http://localhost:3001/api');
 
+// Define types for paginated responses
+interface PaginationInfo {
+  currentPage: number;
+  totalPages: number;
+  totalCount: number;
+  hasNext: boolean;
+  hasPrev: boolean;
+}
+
+interface PaginatedResponse<T> {
+  data: T[];
+  pagination: PaginationInfo;
+}
+
+// Define the AI Tool type
+interface AITool {
+  id: string;
+  name: string;
+  description: string;
+  category: string;
+  icon?: string;
+  url?: string;
+  tags: string;
+  featured: boolean;
+  pricing?: string;
+  isPaid?: boolean;
+  pros?: string;
+  cons?: string;
+  fullDescription?: string;
+  detailUrl?: string;
+  logoUrl?: string;
+  applicableTasks?: string;
+  createdAt: string;
+  updatedAt: string;
+  authorId: string;
+  author: {
+    name: string;
+  };
+}
+
+// Define the AI Enrollment type
+interface AIEnrollment {
+  id: string;
+  userId?: string;
+  toolId: string;
+  name: string;
+  email: string;
+  phone: string;
+  linkedin?: string;
+  aadhar: string;
+  pan: string;
+  message?: string;
+  isVerified: boolean;
+  isPaid: boolean;
+  transactionId?: string;
+  enrolledAt: string;
+  tool: AITool;
+}
+
 const api = axios.create({
   baseURL: API_URL,
   headers: {
@@ -61,11 +120,20 @@ export const pagesAPI = {
 };
 
 export const aiToolsAPI = {
-  getAll: (params?: any) => api.get('/ai-tools', { params }),
-  getCategories: () => api.get('/ai-tools/categories'),
-  create: (data: any) => api.post('/ai-tools', data),
-  update: (id: string, data: any) => api.put(`/ai-tools/${id}`, data),
+  getAll: (params?: any) => api.get<PaginatedResponse<AITool>>('/ai-tools', { params }),
+  getCategories: () => api.get<string[]>('/ai-tools/categories'),
+  create: (data: any) => api.post<AITool>('/ai-tools', data),
+  update: (id: string, data: any) => api.put<AITool>(`/ai-tools/${id}`, data),
   delete: (id: string) => api.delete(`/ai-tools/${id}`)
+};
+
+export const aiEnrollmentsAPI = {
+  create: (data: any) => api.post<AIEnrollment>('/ai-enrollments', data),
+  verify: (id: string) => api.post<AIEnrollment>(`/ai-enrollments/${id}/verify`),
+  updatePayment: (id: string, transactionId?: string) => 
+    api.post<AIEnrollment>(`/ai-enrollments/${id}/payment`, { transactionId }),
+  getByUser: (userId: string) => api.get<AIEnrollment[]>(`/ai-enrollments/user/${userId}`),
+  getById: (id: string) => api.get<AIEnrollment>(`/ai-enrollments/${id}`)
 };
 
 export const navigationAPI = {

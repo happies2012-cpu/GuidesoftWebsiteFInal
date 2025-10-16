@@ -3,6 +3,22 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
+import img1 from "@/assets/1.png";
+import img2 from "@/assets/2.png";
+import img3 from "@/assets/3.png";
+import img4 from "@/assets/4.png";
+import img5 from "@/assets/5.png";
+import img6 from "@/assets/6.png";
+import img7 from "@/assets/7.png";
+import img8 from "@/assets/8.png";
+import img9 from "@/assets/9.png";
+import img10 from "@/assets/10.png";
+import img11 from "@/assets/11.png";
+import img12 from "@/assets/12.png";
+import img13 from "@/assets/13.png";
+import img14 from "@/assets/14.png";
+import img15 from "@/assets/15.png";
+import img16 from "@/assets/16.png";
 
 export const ShuffleHero = () => {
   return (
@@ -60,117 +76,117 @@ const shuffle = (array: (typeof squareData)[0][]) => {
   return array;
 };
 
-// AI tools themed images with specific AI platforms and tools - using techicons.dev
+// AI tools themed images with local SVG placeholders - no external dependencies
 const squareData = [
   {
     id: 1,
-    src: "https://techicons.dev/icons/openai",
-    fallback: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    src: "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#10B981" rx="20"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white">O</text></svg>`),
+    fallback: img1,
     gradient: "from-green-400 to-emerald-600",
     label: "OpenAI"
   },
   {
     id: 2,
-    src: "https://techicons.dev/icons/anthropic",
-    fallback: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    src: "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#EA580C" rx="20"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white">C</text></svg>`),
+    fallback: img2,
     gradient: "from-orange-400 to-red-600",
     label: "Claude AI"
   },
   {
     id: 3,
-    src: "https://techicons.dev/icons/google",
-    fallback: "https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    src: "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#7C3AED" rx="20"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white">G</text></svg>`),
+    fallback: img3,
     gradient: "from-purple-400 to-indigo-600",
     label: "Google AI"
   },
   {
     id: 4,
-    src: "https://techicons.dev/icons/github",
-    fallback: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    src: "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#374151" rx="20"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white">H</text></svg>`),
+    fallback: img4,
     gradient: "from-gray-700 to-gray-900",
     label: "GitHub AI"
   },
   {
     id: 5,
-    src: "https://techicons.dev/icons/tensorflow",
-    fallback: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    src: "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#F59E0B" rx="20"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white">T</text></svg>`),
+    fallback: img5,
     gradient: "from-orange-500 to-yellow-500",
     label: "TensorFlow"
   },
   {
     id: 6,
-    src: "https://techicons.dev/icons/pytorch",
-    fallback: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    src: "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#DC2626" rx="20"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white">P</text></svg>`),
+    fallback: img6,
     gradient: "from-red-500 to-orange-500",
     label: "PyTorch"
   },
   {
     id: 7,
-    src: "https://techicons.dev/icons/python",
-    fallback: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    src: "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#3B82F6" rx="20"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white">P</text></svg>`),
+    fallback: img7,
     gradient: "from-blue-500 to-yellow-500",
     label: "Python"
   },
   {
     id: 8,
-    src: "https://techicons.dev/icons/jupyter",
-    fallback: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    src: "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#EA580C" rx="20"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white">J</text></svg>`),
+    fallback: img8,
     gradient: "from-orange-400 to-red-500",
     label: "Jupyter"
   },
   {
     id: 9,
-    src: "https://techicons.dev/icons/docker",
-    fallback: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    src: "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#06B6D4" rx="20"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white">D</text></svg>`),
+    fallback: img9,
     gradient: "from-blue-400 to-cyan-500",
     label: "Docker"
   },
   {
     id: 10,
-    src: "https://techicons.dev/icons/kubernetes",
-    fallback: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    src: "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#4F46E5" rx="20"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white">K</text></svg>`),
+    fallback: img10,
     gradient: "from-blue-500 to-indigo-600",
     label: "Kubernetes"
   },
   {
     id: 11,
-    src: "https://techicons.dev/icons/aws",
-    fallback: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    src: "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#F59E0B" rx="20"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white">A</text></svg>`),
+    fallback: img11,
     gradient: "from-orange-400 to-yellow-500",
     label: "AWS"
   },
   {
     id: 12,
-    src: "https://techicons.dev/icons/googlecloud",
-    fallback: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    src: "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#2563EB" rx="20"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white">G</text></svg>`),
+    fallback: img12,
     gradient: "from-blue-400 to-red-500",
     label: "Google Cloud"
   },
   {
     id: 13,
-    src: "https://techicons.dev/icons/react",
-    fallback: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    src: "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#06B6D4" rx="20"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white">R</text></svg>`),
+    fallback: img13,
     gradient: "from-cyan-400 to-blue-500",
     label: "React"
   },
   {
     id: 14,
-    src: "https://techicons.dev/icons/nodejs",
-    fallback: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    src: "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#16A34A" rx="20"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white">N</text></svg>`),
+    fallback: img14,
     gradient: "from-green-500 to-green-700",
     label: "Node.js"
   },
   {
     id: 15,
-    src: "https://techicons.dev/icons/typescript",
-    fallback: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    src: "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#2563EB" rx="20"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white">T</text></svg>`),
+    fallback: img15,
     gradient: "from-blue-500 to-blue-700",
     label: "TypeScript"
   },
   {
     id: 16,
-    src: "https://techicons.dev/icons/mongodb",
-    fallback: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+    src: "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#16A34A" rx="20"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white">M</text></svg>`),
+    fallback: img16,
     gradient: "from-green-500 to-green-700",
     label: "MongoDB"
   },
@@ -194,6 +210,7 @@ const generateSquares = () => {
         className="w-16 h-16 md:w-20 md:h-20 object-contain group-hover:scale-110 transition-transform duration-300 relative z-10 p-2"
         onError={(e) => {
           const target = e.target as HTMLImageElement;
+          // @ts-ignore
           target.src = sq.fallback;
           target.className = "w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 p-0";
         }}

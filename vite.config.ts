@@ -8,11 +8,15 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    https: mode === "production" ? {
+      key: './certs/server.key',
+      cert: './certs/server.crt'
+    } : false,
     proxy: {
       '/api': {
-        target: 'http://localhost:3001',
+        target: mode === "production" ? 'https://localhost:3001' : 'http://localhost:3001',
         changeOrigin: true,
-        secure: false,
+        secure: mode === "production",
         ws: true,
         configure: (proxy, _options) => {
           proxy.on('error', (err, _req, _res) => {
@@ -39,6 +43,39 @@ export default defineConfig(({ mode }) => ({
     },
   },
   optimizeDeps: {
-    exclude: ['lucide-react'],
+    include: [
+      'react',
+      'react-dom',
+      'react-router-dom',
+      'framer-motion',
+      'lucide-react',
+      '@radix-ui/react-dialog',
+      '@radix-ui/react-dropdown-menu',
+      '@radix-ui/react-navigation-menu',
+      '@tanstack/react-query'
+    ],
+    exclude: ['@vite/client', '@vite/env']
   },
+  build: {
+    target: 'esnext',
+    minify: 'esbuild',
+    sourcemap: mode === "development",
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+          ui: ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu', '@radix-ui/react-navigation-menu'],
+          motion: ['framer-motion'],
+          icons: ['lucide-react'],
+          query: ['@tanstack/react-query']
+        }
+      }
+    },
+    chunkSizeWarningLimit: 1000,
+    assetsInlineLimit: 4096
+  },
+  esbuild: {
+    drop: mode === "production" ? ['console', 'debugger'] : []
+  }
 }));

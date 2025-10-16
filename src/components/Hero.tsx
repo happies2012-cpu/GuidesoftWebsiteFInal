@@ -4,7 +4,21 @@ import { cn } from "@/lib/utils";
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 import TypewriterEffect from "./TypewriterEffect";
-
+// Studio image imports
+import studio10 from "@/assets/Studio/10.png";
+import studio11 from "@/assets/Studio/11.png";
+import studio12 from "@/assets/Studio/12.png";
+import audio from "@/assets/Studio/audio.png";
+import brandPromotions from "@/assets/Studio/Brand Promotions.png";
+import designing from "@/assets/Studio/designing.png";
+import dev from "@/assets/Studio/dev.png";
+import digitalMarketing from "@/assets/Studio/Digital Marketing.png";
+import entertainment from "@/assets/Studio/Entertainment.png";
+import news from "@/assets/Studio/news.png";
+import products from "@/assets/Studio/products.png";
+import promoting from "@/assets/Studio/promoting.png";
+import uxui from "@/assets/Studio/uxui.png";
+import workflows from "@/assets/Studio/workflows.png";
 
 const transitionVariants = {
     item: {
@@ -139,6 +153,24 @@ const AppComponent = () => {
 }
 
 const LogoCloud = () => {
+  // Define the tools with Studio images - original design
+  const tools = [
+    { image: studio10, alt: "Software Development" },
+    { image: studio11, alt: "UI/UX Design" },
+    { image: studio12, alt: "Graphic Design" },
+    { image: audio, alt: "Workflow Automation" },
+    { image: brandPromotions, alt: "Product Development" },
+    { image: designing, alt: "Digital Marketing" },
+    { image: dev, alt: "Development Tools" },
+    { image: digitalMarketing, alt: "Digital Marketing" },
+    { image: entertainment, alt: "Entertainment" },
+    { image: news, alt: "News & Media" },
+    { image: products, alt: "Products" },
+    { image: promoting, alt: "Promoting" },
+    { image: uxui, alt: "UX/UI Design" },
+    { image: workflows, alt: "Workflows" },
+  ];
+
   return (
     <section className="bg-background pb-16 md:pb-32 w-full">
       <div className="group w-full px-6">
@@ -151,61 +183,17 @@ const LogoCloud = () => {
               durationOnHover={20}
               duration={40}
               gap={112}>
-              <div className="flex">
-                <img
-                  className="mx-auto w-[150px] h-[150px] object-contain"
-                  src="https://techicons.dev/icons/vscode"
-                  alt="Development Services"
-                  width="150"
-                  height="150"
-                />
-              </div>
-
-              <div className="flex">
-                <img
-                  className="mx-auto w-[150px] h-[150px] object-contain"
-                  src="https://techicons.dev/icons/figma"
-                  alt="UI/UX Design"
-                  width="150"
-                  height="150"
-                />
-              </div>
-              <div className="flex">
-                <img
-                  className="mx-auto w-[150px] h-[150px] object-contain"
-                  src="https://techicons.dev/icons/illustrator"
-                  alt="Graphic Design"
-                  width="150"
-                  height="150"
-                />
-              </div>
-              <div className="flex">
-                <img
-                  className="mx-auto w-[150px] h-[150px] object-contain"
-                  src="https://techicons.dev/icons/github"
-                  alt="Workflow Automation"
-                  width="150"
-                  height="150"
-                />
-              </div>
-              <div className="flex">
-                <img
-                  className="mx-auto w-[150px] h-[150px] object-contain"
-                  src="https://techicons.dev/icons/docker"
-                  alt="Product Development"
-                  width="150"
-                  height="150"
-                />
-              </div>
-              <div className="flex">
-                <img
-                  className="mx-auto w-[150px] h-[150px] object-contain"
-                  src="https://techicons.dev/icons/googleads"
-                  alt="Digital Promotion"
-                  width="150"
-                  height="150"
-                />
-              </div>
+              {tools.map((tool, index) => (
+                <div key={index} className="flex">
+                  <img
+                    className="mx-auto w-[150px] h-[150px] object-contain"
+                    src={tool.image}
+                    alt={tool.alt}
+                    width="150"
+                    height="150"
+                  />
+                </div>
+              ))}
             </InfiniteSlider>
 
             <div className="bg-linear-to-r from-background absolute inset-y-0 left-0 w-20"></div>

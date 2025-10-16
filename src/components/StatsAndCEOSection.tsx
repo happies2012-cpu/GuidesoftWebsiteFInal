@@ -6,6 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Users, Award, TrendingUp, Globe } from 'lucide-react';
 import { ShuffleHero } from '@/components/ui/shuffle-grid';
 import ceoImage from '@/assets/praveen.png';
+import SmartImage from '@/components/ui/SmartImage';
 
 const StatsAndCEOSection = () => {
   const containerVariants = {
@@ -54,7 +55,7 @@ const StatsAndCEOSection = () => {
             {/* Left Side: CEO Image */}
             <motion.div variants={cardVariants} className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-background/40 backdrop-blur-xl border border-primary/20 h-full">
-                <img
+                <SmartImage
                   src={ceoImage}
                   alt="CEO of Guidesoft"
                   className="w-full h-full object-cover object-top"

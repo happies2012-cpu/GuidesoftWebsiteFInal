@@ -216,10 +216,11 @@ const Footer = () => {
             </div>
             <Link to="/contact">
               <Button variant="default" className="w-full mt-6 bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end hover:opacity-90 transition-opacity shadow-lg text-sm">
-                Get a Free Consultation
+                Get a Consultation
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
+
           </motion.div>
         </div>
 

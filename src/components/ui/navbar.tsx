@@ -1,6 +1,5 @@
 "use client"
 
-import { Book, Menu, ShoppingCart, Search, Palette, GraduationCap, History, Users, LayoutDashboard, Sparkles, Boxes, Code, Globe, Smartphone, Database, Cloud, Settings, MessageCircle, Briefcase, Target, TrendingUp } from "lucide-react";
 import * as React from "react";
 
 import {
@@ -37,23 +36,25 @@ import {
 import { Link } from "react-router-dom";
 import guideSoftLogo from "@/assets/guidesoft-logo.png";
 import { mainNavigation, NavItem } from "@/lib/navigation-data";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCode, faMobileAlt, faPalette, faCloud, faChartLine, faRobot, faGlobe, faUsers, faTachometerAlt, faShoppingCart, faDatabase, faCog, faSearch, faBars, faMessage, faBriefcase, faBullseye, faBook, faVideo, faMicrophone, faCamera, faUserFriends, faShare, faComment, faCircle, faShield, faBolt, faMobile, faMapMarkerAlt, faCogs } from '@fortawesome/free-solid-svg-icons';
 
 // Helper function to get appropriate icons for services
 const getIconForService = (title: string): JSX.Element => {
   const lowerTitle = title.toLowerCase();
-  if (lowerTitle.includes("web development") || lowerTitle.includes("software")) return <Code className="size-5 shrink-0" />;
-  if (lowerTitle.includes("app development") || lowerTitle.includes("mobile")) return <Smartphone className="size-5 shrink-0" />;
-  if (lowerTitle.includes("ui/ux") || lowerTitle.includes("design")) return <Palette className="size-5 shrink-0" />;
-  if (lowerTitle.includes("cloud") || lowerTitle.includes("devops")) return <Cloud className="size-5 shrink-0" />;
-  if (lowerTitle.includes("data") || lowerTitle.includes("analytics")) return <TrendingUp className="size-5 shrink-0" />;
-  if (lowerTitle.includes("ai") || lowerTitle.includes("machine learning")) return <Sparkles className="size-5 shrink-0" />;
-  if (lowerTitle.includes("travel") || lowerTitle.includes("booking")) return <Globe className="size-5 shrink-0" />;
-  if (lowerTitle.includes("hire") || lowerTitle.includes("developer")) return <Users className="size-5 shrink-0" />;
-  if (lowerTitle.includes("enterprise")) return <LayoutDashboard className="size-5 shrink-0" />;
-  if (lowerTitle.includes("ecommerce") || lowerTitle.includes("shopping")) return <ShoppingCart className="size-5 shrink-0" />;
-  if (lowerTitle.includes("database")) return <Database className="size-5 shrink-0" />;
-  if (lowerTitle.includes("consulting")) return <Settings className="size-5 shrink-0" />;
-  return <Boxes className="size-5 shrink-0" />; // Default icon
+  if (lowerTitle.includes("web development") || lowerTitle.includes("software")) return <FontAwesomeIcon icon={faCode} className="size-5 shrink-0" />;
+  if (lowerTitle.includes("app development") || lowerTitle.includes("mobile")) return <FontAwesomeIcon icon={faMobileAlt} className="size-5 shrink-0" />;
+  if (lowerTitle.includes("ui/ux") || lowerTitle.includes("design")) return <FontAwesomeIcon icon={faPalette} className="size-5 shrink-0" />;
+  if (lowerTitle.includes("cloud") || lowerTitle.includes("devops")) return <FontAwesomeIcon icon={faCloud} className="size-5 shrink-0" />;
+  if (lowerTitle.includes("data") || lowerTitle.includes("analytics")) return <FontAwesomeIcon icon={faChartLine} className="size-5 shrink-0" />;
+  if (lowerTitle.includes("ai") || lowerTitle.includes("machine learning")) return <FontAwesomeIcon icon={faRobot} className="size-5 shrink-0" />;
+  if (lowerTitle.includes("travel") || lowerTitle.includes("booking")) return <FontAwesomeIcon icon={faGlobe} className="size-5 shrink-0" />;
+  if (lowerTitle.includes("hire") || lowerTitle.includes("developer")) return <FontAwesomeIcon icon={faUsers} className="size-5 shrink-0" />;
+  if (lowerTitle.includes("enterprise")) return <FontAwesomeIcon icon={faTachometerAlt} className="size-5 shrink-0" />;
+  if (lowerTitle.includes("ecommerce") || lowerTitle.includes("shopping")) return <FontAwesomeIcon icon={faShoppingCart} className="size-5 shrink-0" />;
+  if (lowerTitle.includes("database")) return <FontAwesomeIcon icon={faDatabase} className="size-5 shrink-0" />;
+  if (lowerTitle.includes("consulting")) return <FontAwesomeIcon icon={faCog} className="size-5 shrink-0" />;
+  return <FontAwesomeIcon icon={faCode} className="size-5 shrink-0" />; // Default icon
 };
 
 // Helper function to generate descriptions for services
@@ -161,7 +162,7 @@ export default function Navbar({
               <span className="text-xl font-bold text-foreground">{logo.title}.</span>
             </Link>
             <div className="flex items-center">
-              <NavigationMenu className="[&_[data-radix-navigation-menu-viewport]]:rounded-2xl [&_[data-radix-navigation-menu-viewport]]:border-primary/20 [&_[data-radix-navigation-menu-viewport]]:bg-background/95 [&_[data-radix-navigation-menu-viewport]]:backdrop-blur-xl">
+              <NavigationMenu className="[&_[data-radix-navigation-menu-viewport]]:rounded-2xl [&_[data-radix-navigation-menu-viewport]]:border-white/10 [&_[data-radix-navigation-menu-viewport]]:bg-black">
                 <NavigationMenuList className="rounded-2xl bg-background/50 backdrop-blur-sm border border-primary/10">
                   {navigationMenu.map((item) => renderMenuItem(item))}
                 </NavigationMenuList>
@@ -178,23 +179,23 @@ export default function Navbar({
               className="text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
               aria-label="Search"
             >
-              <Search className="size-5" />
+              <FontAwesomeIcon icon={faSearch} className="size-5" />
             </Button>
 
             {/* WhatsApp Button */}
-            <Button 
-              variant="ghost" 
+            <Button
+              variant="ghost"
               size="icon"
               asChild
               className="text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
             >
-              <a 
-                href="https://wa.me/918500647979" 
-                target="_blank" 
+              <a
+                href="https://wa.me/918500647979"
+                target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Contact us on WhatsApp"
               >
-                <MessageCircle className="size-5" />
+                <FontAwesomeIcon icon={faMessage} className="size-5" />
               </a>
             </Button>
 
@@ -224,23 +225,23 @@ export default function Navbar({
                 className="text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
                 aria-label="Search"
               >
-                <Search className="size-5" />
+                <FontAwesomeIcon icon={faSearch} className="size-5" />
               </Button>
 
               {/* WhatsApp button mobile */}
-              <Button 
-                variant="ghost" 
+              <Button
+                variant="ghost"
                 size="icon"
                 asChild
                 className="text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
               >
-                <a 
-                  href="https://wa.me/918500647979" 
-                  target="_blank" 
+                <a
+                  href="https://wa.me/918500647979"
+                  target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Contact us on WhatsApp"
                 >
-                  <MessageCircle className="size-5" />
+                  <FontAwesomeIcon icon={faMessage} className="size-5" />
                 </a>
               </Button>
 
@@ -248,7 +249,7 @@ export default function Navbar({
               <Sheet>
                 <SheetTrigger asChild>
                   <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all">
-                    <Menu className="size-5" />
+                    <FontAwesomeIcon icon={faBars} className="size-5" />
                   </Button>
                 </SheetTrigger>
                 <SheetContent className="overflow-y-auto bg-background/95 backdrop-blur-xl border-l border-primary/20">
@@ -305,25 +306,25 @@ export default function Navbar({
           <CommandGroup className="text-muted-foreground" heading="Quick Links">
             <CommandItem className="text-foreground">
               <Link to="/services" className="flex items-center gap-2 w-full">
-                <Code className="size-4" />
+                <FontAwesomeIcon icon={faCode} className="size-4" />
                 Our Services
               </Link>
             </CommandItem>
             <CommandItem className="text-foreground">
               <Link to="/portfolio" className="flex items-center gap-2 w-full">
-                <Briefcase className="size-4" />
+                <FontAwesomeIcon icon={faBriefcase} className="size-4" />
                 Portfolio
               </Link>
             </CommandItem>
             <CommandItem className="text-foreground">
               <Link to="/contact" className="flex items-center gap-2 w-full">
-                <Target className="size-4" />
+                <FontAwesomeIcon icon={faBullseye} className="size-4" />
                 Get A Quote
               </Link>
             </CommandItem>
             <CommandItem className="text-foreground">
               <Link to="/blog" className="flex items-center gap-2 w-full">
-                <Book className="size-4" />
+                <FontAwesomeIcon icon={faBook} className="size-4" />
                 Blog
               </Link>
             </CommandItem>

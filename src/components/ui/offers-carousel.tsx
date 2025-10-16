@@ -13,6 +13,7 @@ export interface CarouselItem {
   subtitle: string;
   rating: number;
   price: number;
+  unit?: string; // Added unit field for displaying +, %, etc.
   originalPrice?: number;
   discountPercentage?: number;
 }
@@ -60,10 +61,14 @@ const ItemCard = ({ item }: { item: CarouselItem }) => (
         </div>
         <p className="mt-1 text-sm text-muted-foreground">{item.subtitle}</p>
         <div className="mt-3 flex items-end gap-2">
-          <p className="text-lg font-bold">{item.price}</p>
+          <p className="text-lg font-bold">
+            {item.price}
+            {item.unit && <span className="text-sm">{item.unit}</span>}
+          </p>
           {item.originalPrice && (
             <p className="text-sm text-muted-foreground line-through">
               {item.originalPrice}
+              {item.unit && <span className="text-sm">{item.unit}</span>}
             </p>
           )}
         </div>

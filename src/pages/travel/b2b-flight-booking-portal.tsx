@@ -1,5 +1,16 @@
 "use client";
 
+import React from "react";
+import GenericSubPage from "@/components/ui/GenericSubPage";
+
+const B2BFlightBookingPortal: React.FC = () => {
+  return <GenericSubPage />;
+};
+
+export default B2BFlightBookingPortal;
+
+"use client";
+
 import React from 'react';
 import { motion, Easing } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';

@@ -1,6 +1,8 @@
 "use client";
 
 import React from 'react';
+// SmartImage available for future use in case icons/images get added here
+// import SmartImage from '@/components/ui/SmartImage'
 import { motion } from 'framer-motion';
 import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';

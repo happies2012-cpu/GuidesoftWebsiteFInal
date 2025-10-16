@@ -395,7 +395,7 @@ const FullStackDevelopment = () => {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[
-                  { icon: Layers, number: "180+", label: "Projects Completed" },
+                  { icon: Layers, number: "180+", label: "Ready Workflow with AI" },
                   { icon: Users, number: "90+", label: "Satisfied Clients" },
                   { icon: Award, number: "97%", label: "Client Retention" }
                 ].map((stat, index) => (
@@ -443,7 +443,7 @@ const FullStackDevelopment = () => {
           <p className="text-xl mb-8 max-w-2xl mx-auto">Let's build your next innovative full stack application together.</p>
           <Link to="/contact">
             <Button size="lg" className="px-8 bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-lg">
-              Get a Free Consultation
+              Get a Consultation
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>

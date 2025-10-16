@@ -5,6 +5,7 @@ import { motion, Easing } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ShoppingBag, Code, Shield, Zap, Users, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { getHeroImage } from "@/lib/image-utils";
 
 const ShoppingApp = () => {
   const containerVariants = {
@@ -81,7 +82,7 @@ const ShoppingApp = () => {
             </motion.div>
             <motion.div variants={containerVariants} className="relative">
               <img
-                src="/placeholder.svg" // Replace with actual shopping app mockup image
+                src={getHeroImage('shopping-app')} // Replace with actual shopping app mockup image
                 alt="Shopping App Solution"
                 className="w-full h-96 object-cover rounded-2xl shadow-2xl"
               />

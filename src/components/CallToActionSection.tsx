@@ -46,20 +46,20 @@ const CallToActionSection = () => {
           </p>
         </motion.div>
         <motion.div variants={buttonVariants} className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button 
-            size="lg" 
+          <Button
+            size="lg"
             className="px-8 py-6 text-lg bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-lg"
-            onClick={() => window.dispatchEvent(new CustomEvent('openModal', { 
-              detail: { 
-                type: 'consultation', 
-                data: { 
-                  title: 'Free Consultation', 
-                  description: 'Schedule a free consultation to discuss your project requirements and how we can help.' 
-                } 
-              } 
+            onClick={() => window.dispatchEvent(new CustomEvent('openModal', {
+              detail: {
+                type: 'consultation',
+                data: {
+                  title: 'Consultation',
+                  description: 'Schedule a consultation to discuss your project requirements and how we can help.'
+                }
+              }
             }))}
           >
-            Get a Free Consultation
+            Get a Consultation
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
           <Button 

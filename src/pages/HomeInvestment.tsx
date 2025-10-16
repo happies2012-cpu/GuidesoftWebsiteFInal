@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { TrendingUp, Target, Users, DollarSign, BarChart3, PieChart } from "lucide-react";
 import { motion, Easing } from "framer-motion";
+import heroBg from "@/assets/hero-bg.jpg";
+import teamMeeting from "@/assets/team-meeting.jpg";
+import praveen from "@/assets/praveen.png";
 
 const HomeInvestment = () => {
   const investmentServices = [
@@ -22,22 +25,22 @@ const HomeInvestment = () => {
     {
       title: "Direct Involvement in Assets",
       description: "There are many lipsum of in pass sages available.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3"
+      image: teamMeeting
     },
     {
       title: "Rich Experience and Wide Expertise",
       description: "There are many lipsum of in pass sages available.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3"
+      image: praveen
     },
     {
       title: "Openness and Transparency", 
       description: "There are many lipsum of in pass sages available.",
-      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3"
+      image: heroBg
     },
     {
       title: "Co-investments Solutions",
       description: "There are many lipsum of in pass sages available.", 
-      image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3"
+      image: teamMeeting
     }
   ];
 
@@ -75,7 +78,7 @@ const HomeInvestment = () => {
       <section 
         className="relative min-h-screen flex items-center bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "linear-gradient(135deg, rgba(30,41,59,0.9), rgba(30,41,59,0.7)), url('https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3')"
+          backgroundImage: `linear-gradient(135deg, rgba(30,41,59,0.9), rgba(30,41,59,0.7)), url('${heroBg}')`
         }}
       >
         <div className="container mx-auto px-4 relative z-10">
@@ -99,7 +102,7 @@ const HomeInvestment = () => {
               </p>
               
               <Button size="lg" className="px-8 py-6 text-lg bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end hover:opacity-90 transition-opacity shadow-lg">
-                Free Consultations →
+                Consultations →
               </Button>
             </motion.div>
 
@@ -123,7 +126,7 @@ const HomeInvestment = () => {
                 
                 {/* Client Stats */}
                 <div className="bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end rounded-2xl p-6 text-white shadow-xl">
-                  <h3 className="text-white font-semibold mb-4">256+ Global Clients</h3>
+                  <h3 className="text-white font-semibold mb-4">256+ AI Workflows </h3>
                   <div className="flex space-x-2">
                     {[1,2,3,4,5].map((i) => (
                       <div key={i} className="w-8 h-8 bg-white/20 rounded-full" />
@@ -218,7 +221,7 @@ const HomeInvestment = () => {
               <br />
               Is All Here In Your Financial World
             </h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {portfolioItems.map((item, index) => (
                 <motion.div
@@ -229,8 +232,8 @@ const HomeInvestment = () => {
                   className="group cursor-pointer bg-background/40 backdrop-blur-xl rounded-lg shadow-xl p-6 hover:shadow-2xl transition-shadow border border-primary/20 hover:border-primary/50"
                 >
                   <div className="relative overflow-hidden rounded-lg mb-4">
-                    <img 
-                      src={item.image} 
+                    <img
+                      src={item.image}
                       alt={item.title}
                       className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
                     />

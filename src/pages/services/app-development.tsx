@@ -443,7 +443,7 @@ const AppDevelopment = () => {
           <p className="text-xl mb-8 max-w-2xl mx-auto">Let's build an innovative mobile application that captivates your audience and drives business success.</p>
           <Link to="/contact">
             <Button size="lg" className="px-8 bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-lg">
-              Get a Free App Consultation
+              Get an App Consultation
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>

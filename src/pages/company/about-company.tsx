@@ -48,7 +48,7 @@ const AboutCompany = () => {
 
   const teamStats = [
     { number: "15+", label: "Years Experience" },
-    { number: "200+", label: "Projects Completed" },
+    { number: "200+", label: "Ready Workflow with AI" },
     { number: "50+", label: "Team Members" },
     { number: "25+", label: "Countries Served" }
   ];

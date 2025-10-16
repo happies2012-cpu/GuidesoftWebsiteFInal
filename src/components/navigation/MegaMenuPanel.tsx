@@ -21,7 +21,7 @@ const ListItem = React.forwardRef<React.ElementRef<"a">, ListItemProps>(
             to={href || "#"}
             className={cn(
               "block select-none rounded-md p-2 leading-tight no-underline outline-none transition-colors hover:bg-accent hover:text-foreground focus:bg-accent focus:text-foreground",
-              "text-foreground text-sm",
+              "text-white text-sm",
               active && "text-primary font-medium",
               className
             )}
@@ -48,19 +48,19 @@ interface MegaMenuPanelProps {
 
 const MegaMenuPanel: React.FC<MegaMenuPanelProps> = ({ items, locationPathname }) => {
   return (
-    <div className="w-full p-4">
-      <ul className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 justify-center">
+    <div className="w-full p-4 text-white bg-black">
+      <ul className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center mx-auto max-w-7xl">
         {items.map((columnItem) => (
-          <li key={columnItem.title} className="space-y-2">
+          <li key={columnItem.title} className="space-y-1">
             <NavigationMenuLink asChild>
               <Link
                 to={columnItem.href || "#"}
                 className={cn(
-                  "block select-none rounded-md p-3 no-underline outline-none transition-colors hover:bg-accent hover:text-foreground focus:bg-accent focus:text-foreground",
-                  locationPathname === columnItem.href && "text-primary font-medium bg-primary/10"
+                  "block select-none rounded-md p-3 no-underline outline-none transition-colors hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white text-center",
+                  locationPathname === columnItem.href && "text-primary font-medium bg-gray-900"
                 )}
               >
-                <div className="text-base font-semibold text-foreground">
+                <div className="text-base font-semibold text-white">
                   {columnItem.title}
                 </div>
               </Link>
@@ -73,7 +73,7 @@ const MegaMenuPanel: React.FC<MegaMenuPanelProps> = ({ items, locationPathname }
                     title={subItem.title}
                     href={subItem.href}
                     active={locationPathname === subItem.href}
-                    className="p-2 text-sm"
+                    className="p-2 text-sm text-white/90 hover:text-white hover:bg-gray-800"
                   />
                 ))}
               </ul>

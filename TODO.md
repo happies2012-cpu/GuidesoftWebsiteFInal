@@ -22,120 +22,133 @@
 
 ## Pending Tasks and Next Steps
 1. [x] Create missing Services subpages under src/pages/services/:
-   - android-app-development.tsx
-   - ios-app-development.tsx
-   - iot-app-development.tsx
-   - native-app-development.tsx
-   - flutter-app-development.tsx
-   - progressive-web-apps.tsx
-   - enterprise-app-development.tsx
-   - ecommerce-app-development.tsx
+   - [x] android-app-development.tsx
+   - [x] ios-app-development.tsx
+   - [x] iot-app-development.tsx
+   - [x] native-app-development.tsx
+   - [x] flutter-app-development.tsx
+   - [x] progressive-web-apps.tsx
+   - [x] enterprise-app-development.tsx
+   - [x] ecommerce-app-development.tsx
+   - [x] hire-electron-js-developers.tsx
+   - [x] hire-reactjs-developers.tsx
+   - [x] hire-nextjs-developers.tsx
+   - [x] hire-html-developers.tsx
+   - [x] hire-angular-developers.tsx
+   - [x] hire-magento-developers.tsx
+   - [x] hire-gatsbyjs-developers.tsx
+   - [x] hire-extjs-developers.tsx
    (Use template: Hero with title, description about the service, features list, CTA button.)
 
 2. [x] Create missing Solutions subpages under src/pages/solutions/:
-   - booking-app.tsx
-   - chatbot-app.tsx
-   - food-delivery-app.tsx
-   - video-streaming-app.tsx
-   - question-answer-app.tsx
-   - scheduling-app.tsx
-   - event-management-app.tsx
-   - flight-booking-app.tsx
-   - video-conferencing.tsx
-   - elearning-solution.tsx
-   - hrms-app-solution.tsx
-   - ble-app-solution.tsx
-   - survey-app-solution.tsx
-   - employee-management-app.tsx
-   - reverse-auction-app.tsx
-   - react-native-app-solution.tsx
-   - ar-app-development.tsx
-   - ecommerce-app-development.tsx (note: duplicate with services, merge if needed)
-   - data-engineering.tsx (duplicate, skip if exists)
-   - data-analytics.tsx
-   - data-visualization.tsx
-   - data-warehousing.tsx
-   - snowflake-solution.tsx
-   - devops-consulting.tsx
-   - it-consulting-services.tsx (duplicate, skip)
-   - it-support-services.tsx
-   - it-outsourcing-services.tsx
-   - offshore-development.tsx
-   - emerging-tech-solutions.tsx (overview)
-   - trending-technology.tsx (overview)
+   - [x] booking-app.tsx
+   - [x] chatbot-app.tsx
+   - [x] food-delivery-app.tsx
+   - [x] video-streaming-app.tsx
+   - [x] question-answer-app.tsx
+   - [x] scheduling-app.tsx
+   - [x] event-management-app.tsx
+   - [x] flight-booking-app.tsx
+   - [x] video-conferencing.tsx
+   - [x] elearning-solution.tsx
+   - [x] hrms-app-solution.tsx
+   - [x] ble-app-solution.tsx
+   - [x] survey-app-solution.tsx
+   - [x] employee-management-app.tsx
+   - [x] reverse-auction-app.tsx
+   - [x] react-native-app-solution.tsx
+   - [x] ar-app-development.tsx
+   - [x] ecommerce-app-development.tsx (note: duplicate with services, merge if needed)
+   - [x] data-engineering.tsx (duplicate, skip if exists)
+   - [x] data-analytics.tsx
+   - [x] data-visualization.tsx
+   - [x] data-warehousing.tsx
+   - [x] snowflake-solution.tsx
+   - [x] devops-consulting.tsx
+   - [x] it-consulting-services.tsx (duplicate, skip)
+   - [x] it-support-services.tsx
+   - [x] it-outsourcing-services.tsx
+   - [x] offshore-development.tsx
+   - [x] emerging-tech-solutions.tsx (overview)
+   - [x] trending-technology.tsx (overview)
 
-3. [ ] Create missing Travel subpages under src/pages/travel/:
+3. [x] Create missing Travel subpages under src/pages/travel/:
    - [x] travel-booking-engine.tsx
-   - hotel-booking-engine.tsx
-   - car-rental-booking-engine.tsx
-   - cruise-booking-engine.tsx
-   - bus-reservation-system.tsx
-   - activities-booking-solution.tsx
+   - [x] hotel-booking-engine.tsx
+   - [x] car-rental-booking-engine.tsx
+   - [x] cruise-booking-engine.tsx
+   - [x] bus-reservation-system.tsx
+   - [x] activities-booking-solution.tsx
    - [x] vacation-rental-management-system.tsx
    - [x] flight-booking-engine.tsx
    - [x] b2b-travel-portal.tsx
-   - b2c-travel-portal.tsx
+   - [x] b2c-travel-portal.tsx
    - custom-travel-portal.tsx (duplicate, skip)
-   - hotel-extranet.tsx
-   - b2b-flight-booking-portal.tsx
-   - air-ticket-booking-portal.tsx
-   - ndc-api-integration.tsx
-   - amadeus-api-integration.tsx
-   - sabre-api-integration.tsx
-   - gds-integration.tsx
-   - expedia-api-integration.tsx
-   - payment-gateway-integration.tsx
-   - travel-customer-support-and-service.tsx
-   - flight-booking-api-integration.tsx
-   - custom-travel-development.tsx
+   - [x] hotel-extranet.tsx
+   - [x] b2b-flight-booking-portal.tsx
+   - [x] air-ticket-booking-portal.tsx
+   - [x] ndc-api-integration.tsx
+   - [x] amadeus-api-integration.tsx
+   - [x] sabre-api-integration.tsx
+   - [x] gds-integration.tsx
+   - [x] expedia-api-integration.tsx
+   - [x] payment-gateway-integration.tsx
+   - [x] travel-customer-support-and-service.tsx
+   - [x] flight-booking-api-integration.tsx
+   - [x] custom-travel-development.tsx
 
-4. [ ] Create missing Hire Us subpages under src/pages/hire-us/:
-   - frontend.tsx
-   - hire-electron-js-developers.tsx
-   - hire-reactjs-developers.tsx
-   - hire-nextjs-developers.tsx
-   - hire-html-developers.tsx
-   - hire-angular-developers.tsx
-   - hire-magento-developers.tsx
-   - hire-gatsbyjs-developers.tsx
-   - hire-extjs-developers.tsx
-   - backend.tsx
-   - hire-nodejs-developers.tsx
+4. [x] Create missing Hire Us subpages under src/pages/hire-us/:
+   - [x] frontend.tsx
+   - [x] hire-electron-js-developers.tsx
+   - [x] hire-reactjs-developers.tsx
+   - [x] hire-nextjs-developers.tsx
+   - [x] hire-html-developers.tsx
+   - [x] hire-angular-developers.tsx
+   - [x] hire-magento-developers.tsx
+   - [x] hire-gatsbyjs-developers.tsx
+   - [x] hire-extjs-developers.tsx
+   - [x] backend.tsx
+   - [x] hire-nodejs-developers.tsx
    - hire-laravel-developers.tsx (duplicate, skip)
    - hire-python-developers.tsx (duplicate, skip)
-   - hire-nestjs-developers.tsx
-   - hire-expressjs-developers.tsx
-   - hire-net-developers.tsx
-   - hire-hapi-js-developers.tsx
-   - hire-fastify-developers.tsx
-   - hire-golang-developers.tsx
-   - mobile.tsx
-   - hire-android-app-developer.tsx
-   - hire-react-native-developers.tsx (duplicate, skip)
+   - [x] hire-nestjs-developers.tsx
+   - [x] hire-expressjs-developers.tsx
+   - [x] hire-net-developers.tsx
+   - [x] hire-hapi-js-developers.tsx
+   - [x] hire-fastify-developers.tsx
+   - [x] hire-golang-developers.tsx
+   - [x] mobile.tsx
+   - [x] hire-android-app-developer.tsx
+   - [x] hire-react-native-developers.tsx (duplicate, skip)
    - hire-flutter-developers.tsx (duplicate, skip)
    - hire-kotlin-developers.tsx (duplicate, skip)
-   - hire-swift-developers.tsx
-   - hire-ios-developers.tsx
-   - trending-technology.tsx (overview for hire-us)
+   - [x] hire-swift-developers.tsx
+   - [x] hire-ios-developers.tsx
+   - [x] trending-technology.tsx (overview for hire-us)
    - hire-remote-developers.tsx (duplicate, skip)
-   - hire-dedicated-developers.tsx
-   - hire-full-stack-developer.tsx
-   - hire-devops-engineers.tsx
-   - hire-qa-engineers.tsx
-   - hire-front-end-developer.tsx
-   - hire-payload-cms-developers.tsx
-   - hire-devops-automation-engineers.tsx
-   - hire-typescript-developers.tsx
+   - [x] hire-dedicated-developers.tsx
+   - [x] hire-full-stack-developer.tsx
+   - [x] hire-devops-engineers.tsx
+   - [x] hire-qa-engineers.tsx
+   - [x] hire-front-end-developer.tsx
+   - [x] hire-payload-cms-developers.tsx
+   - [x] hire-devops-automation-engineers.tsx
+   - [x] hire-typescript-developers.tsx
 
-5. [ ] Create missing Company subpages under src/pages/company/:
-   - insight.tsx
-   - case-studies.tsx
-   - videos.tsx
-   - center-of-excellence.tsx
-   - glossary.tsx
+5. [x] Create missing Company subpages under src/pages/company/:
+   - [x] insight.tsx
+   - [x] case-studies.tsx
+   - [x] videos.tsx
+   - [x] center-of-excellence.tsx
+   - [x] glossary.tsx
 
-6. [ ] Search and replace placeholder/missing images across all pages (e.g., unsplash with Guidesoft assets).
-7. [ ] Test navigation: Hover on menus, click links to new pages, verify no 404s.
-8. [ ] Update TODO.md after each category completed.
+6. [x] Search and replace placeholder/missing images across all pages (e.g., unsplash with Guidesoft assets).
+7. [x] Submenu background updated to black/90 with blur; verify visibility.
+8. [x] Implement UPI QR payments (hidden VPA) in PaymentComponent.
+9. [x] Add PageHero with 4 sections and integrate into dynamic pages.
+10. [x] Add SmartImage component and swap key images to prevent breaks.
+11. [x] Enhance SEO (keywords, canonical, JSON-LD) in index.html.
+12. [x] Test navigation: Hover on menus, click links to new pages, verify no 404s.
+13. [x] Update TODO.md after each category completed.
 
 Next step: Start with Services subpages.

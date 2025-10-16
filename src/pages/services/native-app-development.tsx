@@ -5,6 +5,7 @@ import { motion, Easing } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Code, Smartphone, Download, Shield, Zap, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { getHeroImage } from "@/lib/image-utils";
 
 const NativeAppDevelopment = () => {
   const containerVariants = {
@@ -81,7 +82,7 @@ const NativeAppDevelopment = () => {
             </motion.div>
             <motion.div variants={containerVariants} className="relative">
               <img
-                src="/placeholder.svg" // Replace with actual native app mockup image
+                src={getHeroImage('native-app')} // Replace with actual native app mockup image
                 alt="Native App Development"
                 className="w-full h-96 object-cover rounded-2xl shadow-2xl"
               />

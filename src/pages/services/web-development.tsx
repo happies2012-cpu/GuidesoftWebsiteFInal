@@ -395,7 +395,7 @@ const WebDevelopment = () => {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[
-                  { icon: Code, number: "100+", label: "Projects Completed" },
+                  { icon: Code, number: "100+", label: "Ready Workflow with AI" },
                   { icon: Users, number: "50+", label: "Satisfied Clients" },
                   { icon: Award, number: "95%", label: "Client Retention" }
                 ].map((stat, index) => (

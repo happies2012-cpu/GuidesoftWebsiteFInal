@@ -286,6 +286,15 @@ export const mainNavigation: NavItem[] = [
     ],
   },
   {
+    title: "Demos",
+    children: [
+      {
+        title: "Splash Cursor",
+        href: "/splash-cursor-demo",
+      },
+    ],
+  },
+  {
     title: "Contact",
     href: "/contact",
   },

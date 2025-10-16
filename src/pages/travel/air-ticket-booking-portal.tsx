@@ -1,5 +1,16 @@
 "use client";
 
+import React from "react";
+import GenericSubPage from "@/components/ui/GenericSubPage";
+
+const AirTicketBookingPortal: React.FC = () => {
+  return <GenericSubPage />;
+};
+
+export default AirTicketBookingPortal;
+
+"use client";
+
 import React from 'react';
 import { motion, Easing } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';

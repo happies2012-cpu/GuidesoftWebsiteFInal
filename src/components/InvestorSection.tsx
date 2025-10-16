@@ -52,28 +52,28 @@ const icons = [
 const investors = [
   {
     name: "TechVentures Capital",
-    logo: "https://techicons.dev/icons/react",
+    logo: "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#61DAFB" rx="20"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white">R</text></svg>`),
     investment: "$2.5M",
     round: "Series A",
     description: "Leading VC firm specializing in AI and enterprise software investments."
   },
   {
     name: "Innovate Partners",
-    logo: "https://techicons.dev/icons/typescript",
+    logo: "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#3178C6" rx="20"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white">T</text></svg>`),
     investment: "$1.8M",
     round: "Seed Round",
     description: "Early-stage investor focused on disruptive technology startups."
   },
   {
     name: "Global Growth Fund",
-    logo: "https://techicons.dev/icons/nodejs",
+    logo: "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#339933" rx="20"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white">N</text></svg>`),
     investment: "$3.2M",
     round: "Series B",
     description: "International fund backing high-growth tech companies worldwide."
   },
   {
     name: "AI Future Investments",
-    logo: "https://techicons.dev/icons/python",
+    logo: "data:image/svg+xml," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#3776AB" rx="20"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="200" font-weight="bold" fill="white">P</text></svg>`),
     investment: "$1.5M",
     round: "Pre-Seed",
     description: "Specialized fund for artificial intelligence and machine learning ventures."

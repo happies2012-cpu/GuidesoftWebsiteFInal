@@ -18,18 +18,18 @@ const MainNav = () => {
   const location = useLocation();
 
   return (
-    <NavigationMenu className="hidden lg:flex relative z-[999999] overflow-visible">
-      <NavigationMenuList>
+    <NavigationMenu className="hidden lg:flex relative z-[999999] overflow-visible w-full justify-center">
+      <NavigationMenuList className="w-full justify-center">
         {mainNavigation.map((item) => {
           const itemIsActive = location.pathname === item.href;
 
           if (item.children && item.children.length > 0) {
             return (
-              <NavigationMenuItem key={item.title}>
+              <NavigationMenuItem key={item.title} className="relative">
                 <NavigationMenuTrigger className={cn(navigationMenuTriggerStyle(), "text-foreground px-3 py-2", itemIsActive && "text-primary font-medium")}>
                   {item.title}
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-background border border-primary/20 shadow-xl">
+                <NavigationMenuContent className="bg-black border border-white/10 shadow-2xl text-white w-full">
                   <MegaMenuPanel items={item.children} locationPathname={location.pathname} />
                 </NavigationMenuContent>
               </NavigationMenuItem>
@@ -47,7 +47,7 @@ const MainNav = () => {
           }
         })}
       </NavigationMenuList>
-      <NavigationMenuViewport />
+      <NavigationMenuViewport className="w-full max-w-full" />
     </NavigationMenu>
   );
 };

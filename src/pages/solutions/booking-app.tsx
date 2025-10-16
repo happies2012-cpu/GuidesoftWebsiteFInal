@@ -5,6 +5,7 @@ import { motion, Easing } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, Code, Shield, Zap, Users, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { getHeroImage } from "@/lib/image-utils";
 
 const BookingApp = () => {
   const containerVariants = {
@@ -81,7 +82,7 @@ const BookingApp = () => {
             </motion.div>
             <motion.div variants={containerVariants} className="relative">
               <img
-                src="/placeholder.svg" // Replace with actual booking app mockup image
+                src={getHeroImage('booking-app')} // Replace with actual booking app mockup image
                 alt="Booking App Solution"
                 className="w-full h-96 object-cover rounded-2xl shadow-2xl"
               />

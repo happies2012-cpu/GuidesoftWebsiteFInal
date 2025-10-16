@@ -4,13 +4,17 @@ import { authenticate, authorize } from '../middleware/auth.js';
 
 const router = express.Router();
 
-// Get all AI tools (public)
+// Get all AI tools (public) - optimized with pagination and search
 router.get('/', async (req, res) => {
   try {
-    const { search, category, featured } = req.query;
+    const { search, category, featured, page = 1, limit = 40 } = req.query;
+    const pageNum = parseInt(page);
+    const limitNum = parseInt(limit);
+    
     const where = {};
 
     if (search) {
+      // Use full-text search if available, otherwise fall back to contains
       where.OR = [
         { name: { contains: search, mode: 'insensitive' } },
         { description: { contains: search, mode: 'insensitive' } },
@@ -18,7 +22,7 @@ router.get('/', async (req, res) => {
       ];
     }
 
-    if (category) {
+    if (category && category !== 'all') {
       where.category = category;
     }
 
@@ -26,13 +30,31 @@ router.get('/', async (req, res) => {
       where.featured = true;
     }
 
+    // Calculate pagination
+    const skip = (pageNum - 1) * limitNum;
+    
+    // Get tools with pagination
     const tools = await prisma.aITool.findMany({
       where,
       include: { author: { select: { name: true } } },
-      orderBy: { createdAt: 'desc' }
+      orderBy: { createdAt: 'desc' },
+      skip: skip,
+      take: limitNum
     });
 
-    res.json(tools);
+    // Get total count for pagination
+    const totalCount = await prisma.aITool.count({ where });
+
+    res.json({
+      data: tools,
+      pagination: {
+        currentPage: pageNum,
+        totalPages: Math.ceil(totalCount / limitNum),
+        totalCount: totalCount,
+        hasNext: pageNum < Math.ceil(totalCount / limitNum),
+        hasPrev: pageNum > 1
+      }
+    });
   } catch (error) {
     console.error('Error fetching AI tools:', error);
     res.status(500).json({ error: 'Failed to fetch AI tools' });

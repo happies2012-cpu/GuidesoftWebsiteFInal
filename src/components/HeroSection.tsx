@@ -99,7 +99,7 @@ const AppComponent = () => {
                     <div className="space-y-1">
                         <div className="space-x-1">
                             <span className="text-foreground align-baseline text-xl font-medium">500+</span>
-                            <span className="text-muted-foreground text-xs">Projects Completed</span>
+                            <span className="text-muted-foreground text-xs">Ready Workflow with AI</span>
                         </div>
                         <div className="flex h-5 items-center rounded bg-gradient-to-l from-emerald-400 to-indigo-600 px-2 text-xs text-white">2024</div>
                     </div>

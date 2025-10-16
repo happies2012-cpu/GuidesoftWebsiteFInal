@@ -395,7 +395,7 @@ const ITConsultingServices = () => {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {[
-                  { icon: Code, number: "200+", label: "Projects Completed" },
+                  { icon: Code, number: "200+", label: "Ready Workflow with AI" },
                   { icon: Users, number: "150+", label: "Satisfied Clients" },
                   { icon: Shield, number: "98%", label: "Client Retention" }
                 ].map((stat, index) => (

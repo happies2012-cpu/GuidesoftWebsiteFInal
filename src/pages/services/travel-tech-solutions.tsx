@@ -105,9 +105,10 @@ const TravelTechSolutions = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
               <Button size="lg" className="px-8 bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end hover:opacity-90 transition-opacity shadow-lg">
-                Get a Free Consultation
+                Get a Consultation
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
+
             </Link>
             <Button variant="outline" size="lg" className="px-8 border-primary/30 hover:bg-primary/10 backdrop-blur-sm">
               View Our Travel Portfolio

@@ -1,5 +1,16 @@
 "use client";
 
+import React from "react";
+import GenericSubPage from "@/components/ui/GenericSubPage";
+
+const HotelExtranet: React.FC = () => {
+  return <GenericSubPage />;
+};
+
+export default HotelExtranet;
+
+"use client";
+
 import React from 'react';
 import { motion, Easing } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';

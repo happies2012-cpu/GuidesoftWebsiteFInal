@@ -7,6 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { cn } from "@/lib/utils";
 import { mainNavigation, NavItem } from "@/lib/navigation-data";
 import guideSoftLogo from "@/assets/guidesoft-logo.png";
+import SmartImage from "@/components/ui/SmartImage";
 
 interface MobileNavProps {
   onOpenChange: (open: boolean) => void;
@@ -68,9 +69,9 @@ const MobileNav: React.FC<MobileNavProps> = ({ onOpenChange, isOpen }) => {
       </SheetTrigger>
       <SheetContent side="left" className="w-[300px] sm:w-[400px] flex flex-col bg-background/80 backdrop-blur-xl border-primary/20">
         <div className="flex items-center space-x-3 py-4 border-b border-primary/20 mb-4">
-          <img
+          <SmartImage
             src={guideSoftLogo}
-            alt="Guidesoft IT Solutions" // Reverted to Guidesoft
+            alt="Guidesoft IT Solutions"
             className="w-8 h-8 rounded-lg"
           />
           <span className="text-lg font-semibold text-foreground">Guidesoft IT Solutions</span> {/* Reverted to Guidesoft */}

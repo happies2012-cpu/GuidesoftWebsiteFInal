@@ -1,10 +1,17 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import compression from 'compression';
+import helmet from 'helmet';
+import rateLimit from 'express-rate-limit';
+import https from 'https';
+import fs from 'fs';
+import path from 'path';
 import authRoutes from './routes/auth.js';
 import pagesRoutes from './routes/pages.js';
 import navigationRoutes from './routes/navigation.js';
 import aiToolsRoutes from './routes/ai-tools.js';
+import aiEnrollmentsRoutes from './routes/ai-enrollments.js';
 import settingsRoutes from './routes/settings.js';
 import formsRoutes from './routes/forms.js';
 
@@ -12,10 +19,25 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const isProduction = process.env.NODE_ENV === 'production';
 
-// CORS Configuration - Allow all origins in development
+// Rate limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+  message: 'Too many requests from this IP, please try again later.',
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+// CORS Configuration
 const corsOptions = {
-  origin: true, // Allow all origins
+  origin: isProduction ? [
+    'https://guidesoft.com',
+    'https://www.guidesoft.com',
+    'https://guideitsol.com',
+    'https://www.guideitsol.com'
+  ] : true,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'Origin'],
@@ -24,15 +46,32 @@ const corsOptions = {
 };
 
 // Middleware
+app.use(compression());
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+      fontSrc: ["'self'", "https://fonts.gstatic.com"],
+      imgSrc: ["'self'", "data:", "https:", "blob:"],
+      scriptSrc: ["'self'"],
+      connectSrc: ["'self'", "https://api.guidesoft.com"],
+    },
+  },
+  crossOriginEmbedderPolicy: false
+}));
+app.use(limiter);
 app.use(cors(corsOptions));
-app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ extended: true, limit: '50mb' }));
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Security headers
 app.use((req, res, next) => {
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('X-Frame-Options', 'SAMEORIGIN');
   res.setHeader('X-XSS-Protection', '1; mode=block');
+  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
   next();
 });
 
@@ -41,6 +80,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/pages', pagesRoutes);
 app.use('/api/navigation', navigationRoutes);
 app.use('/api/ai-tools', aiToolsRoutes);
+app.use('/api/ai-enrollments', aiEnrollmentsRoutes);
 app.use('/api/settings', settingsRoutes);
 app.use('/api/forms', formsRoutes);
 
@@ -55,8 +95,27 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Something went wrong!' });
 });
 
-app.listen(PORT, () => {
-  console.log(`Backend server running on http://localhost:${PORT}`);
-});
+// Start server with HTTPS in production
+if (isProduction) {
+  try {
+    const options = {
+      key: fs.readFileSync(path.join(process.cwd(), 'certs', 'server.key')),
+      cert: fs.readFileSync(path.join(process.cwd(), 'certs', 'server.crt'))
+    };
+    
+    https.createServer(options, app).listen(PORT, () => {
+      console.log(`Backend server running on https://localhost:${PORT}`);
+    });
+  } catch (error) {
+    console.log('HTTPS certificates not found, falling back to HTTP');
+    app.listen(PORT, () => {
+      console.log(`Backend server running on http://localhost:${PORT}`);
+    });
+  }
+} else {
+  app.listen(PORT, () => {
+    console.log(`Backend server running on http://localhost:${PORT}`);
+  });
+}
 
 export default app;
