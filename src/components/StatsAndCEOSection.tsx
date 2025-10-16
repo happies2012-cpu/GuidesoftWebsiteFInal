@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion, Easing } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
-import { Users, Award, TrendingUp, Globe, Search, Route, Wrench, RotateCcw, Brain, Workflow, Plug, Users2, Zap, Target, HeartHandshake, Scale, Cpu, ZapIcon, Monitor, Palette, BarChartBig, MessageCircle } from 'lucide-react';
+import { Users, Award, TrendingUp, Globe, Search, Route, Wrench, RotateCcw, Brain, Workflow, Plug, Users2, Zap, Target, HeartHandshake, Scale, Cpu, ZapIcon, Monitor, Palette, BarChartBig, MessageCircle, ArrowRight, CheckCircle } from 'lucide-react';
 import { ShuffleHero } from '@/components/ui/shuffle-grid';
 import { StaggerTestimonials } from '@/components/ui/stagger-testimonials';
 import ceoImage from '@/assets/praveen.png';
@@ -228,148 +228,216 @@ const StatsAndCEOSection = () => {
                   ))}
                 </div>
               </div>
-              
-              {/* Enhanced Our Process Section */}
-              <div className="mt-12 space-y-6 w-full max-w-2xl">
-                <div className="text-center mb-8">
-                  <h3 className="text-3xl font-bold text-foreground mb-2">Our Process</h3>
-                  <p className="text-muted-foreground max-w-lg mx-auto">
-                    A proven methodology to ensure successful project delivery
-                  </p>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {processSteps.map((step, index) => (
-                    <motion.div
-                      key={index}
-                      variants={cardVariants}
-                      whileHover="hover"
-                      transition={{ delay: index * 0.1 }}
-                      className="group relative"
-                    >
-                      <Card className="bg-background/40 backdrop-blur-xl border border-primary/20 hover:border-primary/50 transition-all h-full overflow-hidden">
-                        <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${step.color}`} />
-                        <CardContent className="p-6 relative z-10">
-                          <div className="flex items-start gap-4">
-                            <div className={`flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-r ${step.color} flex items-center justify-center text-white font-bold text-lg shadow-lg`}>
-                              {step.number}
-                            </div>
-                            <div className="flex-1">
-                              <div className="inline-flex items-center gap-2 mb-2">
-                                <step.icon className="h-5 w-5 text-primary" />
-                                <h4 className="font-semibold text-foreground text-lg">{step.title}</h4>
-                              </div>
-                              <p className="text-muted-foreground text-sm">{step.description}</p>
-                            </div>
-                          </div>
-                          
-                          {/* Decorative elements */}
-                          <div className={`absolute -bottom-6 -right-6 w-24 h-24 rounded-full bg-gradient-to-r ${step.color} opacity-10 group-hover:opacity-20 transition-opacity`} />
-                          <div className={`absolute -bottom-3 -right-3 w-16 h-16 rounded-full bg-gradient-to-r ${step.color} opacity-10 group-hover:opacity-20 transition-opacity`} />
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-              
-              {/* New Our Approach Section */}
-              <div className="mt-16 w-full max-w-2xl">
-                <div className="text-center mb-12">
-                  <h3 className="text-3xl font-bold text-foreground mb-3">Our Approach</h3>
-                  <p className="text-muted-foreground max-w-lg mx-auto">
-                    Transforming businesses through intelligent AI solutions
-                  </p>
-                </div>
-                
-                <div className="space-y-8">
-                  {approachData.map((approach, index) => (
-                    <motion.div
-                      key={index}
-                      variants={cardVariants}
-                      whileHover="hover"
-                      transition={{ delay: index * 0.1 }}
-                      className="group relative"
-                    >
-                      <Card className="bg-background/40 backdrop-blur-xl border border-primary/20 hover:border-primary/50 transition-all overflow-hidden">
-                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        <CardContent className="p-6">
-                          <div className="flex flex-col md:flex-row gap-6">
-                            <div className="flex-shrink-0">
-                              <div className="w-16 h-16 rounded-xl bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end flex items-center justify-center text-white shadow-lg group-hover:shadow-xl transition-all duration-300">
-                                <approach.icon className="h-8 w-8" />
-                              </div>
-                            </div>
-                            
-                            <div className="flex-1">
-                              <h4 className="text-xl font-bold text-foreground mb-2">{approach.title}</h4>
-                              <p className="text-muted-foreground mb-4">{approach.description}</p>
-                              
-                              <div className="flex flex-wrap gap-2">
-                                {approach.outcomes.map((outcome, outcomeIndex) => (
-                                  <span 
-                                    key={outcomeIndex} 
-                                    className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                                  >
-                                    <Zap className="h-3 w-3" />
-                                    {outcome}
-                                  </span>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                      
-                      {/* Decorative elements */}
-                      <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-gradient-to-r from-gradient-primary-start/10 to-gradient-primary-end/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    </motion.div>
-                  ))}
-                  
-                  {/* CEO Quote Card */}
-                  <motion.div
-                    variants={cardVariants}
-                    whileHover="hover"
-                    className="group relative mt-12"
-                  >
-                    <Card className="bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end border-0 text-primary-foreground shadow-xl">
-                      <CardContent className="p-8 text-center">
-                        <div className="flex flex-col items-center">
-                          <HeartHandshake className="h-12 w-12 mb-4 text-primary-foreground/80" />
-                          <blockquote className="text-xl font-medium mb-4 italic">
-                            "{ceoInfo.quote}"
-                          </blockquote>
-                          <div className="mt-4">
-                            <p className="font-bold text-lg">{ceoInfo.name}</p>
-                            <p className="text-primary-foreground/80">{ceoInfo.title}, Guidesoft</p>
-                          </div>
-                          <div className="mt-6">
-                            <motion.button
-                              whileHover={{ scale: 1.05 }}
-                              whileTap={{ scale: 0.95 }}
-                              className="px-6 py-3 bg-primary-foreground text-primary font-semibold rounded-lg shadow-lg hover:bg-primary-foreground/90 transition-colors"
-                            >
-                              Schedule Consultation
-                            </motion.button>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                </div>
-              </div>
             </motion.div>
           </div>
         </div>
       </motion.section>
       
-      {/* Testimonials Section */}
+      {/* Our Approach Section - Separated and Enhanced */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={containerVariants}
+        className="py-20 bg-background"
+      >
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-gradient-primary-start via-gradient-primary-end to-cyan-500 bg-clip-text text-transparent">
+              Our Approach
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Transforming businesses through intelligent AI solutions
+            </p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-8">
+              {approachData.map((approach, index) => (
+                <motion.div
+                  key={index}
+                  variants={cardVariants}
+                  whileHover="hover"
+                  transition={{ delay: index * 0.1 }}
+                  className="group relative"
+                >
+                  <Card className="bg-background/40 backdrop-blur-xl border border-primary/20 hover:border-primary/50 transition-all overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <CardContent className="p-8">
+                      <div className="flex flex-col md:flex-row gap-8 items-center">
+                        <div className="flex-shrink-0">
+                          <div className="w-20 h-20 rounded-xl bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end flex items-center justify-center text-white shadow-lg group-hover:shadow-xl transition-all duration-300">
+                            <approach.icon className="h-10 w-10" />
+                          </div>
+                        </div>
+                        
+                        <div className="flex-1 text-center md:text-left">
+                          <h3 className="text-2xl font-bold text-foreground mb-3">{approach.title}</h3>
+                          <p className="text-muted-foreground mb-5 text-lg">{approach.description}</p>
+                          
+                          <div className="flex flex-wrap justify-center md:justify-start gap-3">
+                            {approach.outcomes.map((outcome, outcomeIndex) => (
+                              <span 
+                                key={outcomeIndex} 
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                              >
+                                <Zap className="h-4 w-4" />
+                                {outcome}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                  
+                  {/* Decorative elements */}
+                  <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full bg-gradient-to-r from-gradient-primary-start/10 to-gradient-primary-end/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </motion.div>
+              ))}
+              
+              {/* CEO Quote Card */}
+              <motion.div
+                variants={cardVariants}
+                whileHover="hover"
+                className="group relative"
+              >
+                <Card className="bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end border-0 text-primary-foreground shadow-xl">
+                  <CardContent className="p-10 text-center">
+                    <div className="flex flex-col items-center">
+                      <HeartHandshake className="h-16 w-16 mb-6 text-primary-foreground/80" />
+                      <blockquote className="text-2xl font-medium mb-6 italic max-w-2xl">
+                        "{ceoInfo.quote}"
+                      </blockquote>
+                      <div className="mt-6">
+                        <p className="font-bold text-xl">{ceoInfo.name}</p>
+                        <p className="text-primary-foreground/80 text-lg">{ceoInfo.title}, Guidesoft</p>
+                      </div>
+                      <div className="mt-8">
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="px-8 py-4 bg-primary-foreground text-primary font-semibold rounded-lg shadow-lg hover:bg-primary-foreground/90 transition-colors text-lg flex items-center gap-2"
+                        >
+                          Schedule Consultation
+                          <ArrowRight className="h-5 w-5" />
+                        </motion.button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+      
+      {/* Our Process Section - Enhanced with Vector Graphical User Experience */}
       <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={containerVariants}
         className="py-20 bg-muted/30"
+      >
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-gradient-primary-start via-gradient-primary-end to-cyan-500 bg-clip-text text-transparent">
+              Our Process
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              A proven methodology to ensure successful project delivery with visual workflow
+            </p>
+          </div>
+          
+          <div className="max-w-6xl mx-auto">
+            {/* Vector Graphical Process Visualization */}
+            <div className="relative hidden md:block mb-16">
+              <div className="flex justify-between items-center">
+                {processSteps.map((step, index) => (
+                  <div key={index} className="flex flex-col items-center z-10">
+                    <div className={`w-20 h-20 rounded-full bg-gradient-to-r ${step.color} flex items-center justify-center text-white font-bold text-xl shadow-lg`}>
+                      {step.number}
+                    </div>
+                    <div className="mt-4 text-center max-w-40">
+                      <h3 className="font-bold text-lg">{step.title}</h3>
+                      <p className="text-sm text-muted-foreground mt-1">{step.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Connecting arrows */}
+              <div className="absolute top-10 left-20 right-20 h-1 bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end opacity-30"></div>
+              <div className="absolute top-10 left-1/4 w-1 h-4 bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end opacity-30 transform -translate-x-1/2"></div>
+              <div className="absolute top-10 left-2/4 w-1 h-4 bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end opacity-30 transform -translate-x-1/2"></div>
+              <div className="absolute top-10 left-3/4 w-1 h-4 bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end opacity-30 transform -translate-x-1/2"></div>
+            </div>
+            
+            {/* Mobile-friendly process steps */}
+            <div className="md:hidden space-y-8">
+              {processSteps.map((step, index) => (
+                <motion.div
+                  key={index}
+                  variants={cardVariants}
+                  whileHover="hover"
+                  className="group relative"
+                >
+                  <Card className="bg-background/40 backdrop-blur-xl border border-primary/20 hover:border-primary/50 transition-all">
+                    <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${step.color}`} />
+                    <CardContent className="p-6">
+                      <div className="flex items-start gap-4">
+                        <div className={`flex-shrink-0 w-16 h-16 rounded-lg bg-gradient-to-r ${step.color} flex items-center justify-center text-white font-bold text-xl shadow-lg`}>
+                          {step.number}
+                        </div>
+                        <div className="flex-1">
+                          <div className="inline-flex items-center gap-2 mb-2">
+                            <step.icon className="h-6 w-6 text-primary" />
+                            <h3 className="font-bold text-foreground text-xl">{step.title}</h3>
+                          </div>
+                          <p className="text-muted-foreground">{step.description}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+            
+            {/* Process benefits */}
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Card className="bg-background/40 backdrop-blur-xl border border-primary/20 text-center p-6">
+                <CheckCircle className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="font-bold text-lg mb-2">Structured Approach</h3>
+                <p className="text-muted-foreground text-sm">Well-defined phases ensure consistent results</p>
+              </Card>
+              <Card className="bg-background/40 backdrop-blur-xl border border-primary/20 text-center p-6">
+                <CheckCircle className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="font-bold text-lg mb-2">Continuous Feedback</h3>
+                <p className="text-muted-foreground text-sm">Regular checkpoints for alignment</p>
+              </Card>
+              <Card className="bg-background/40 backdrop-blur-xl border border-primary/20 text-center p-6">
+                <CheckCircle className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="font-bold text-lg mb-2">Quality Assurance</h3>
+                <p className="text-muted-foreground text-sm">Rigorous testing at every stage</p>
+              </Card>
+              <Card className="bg-background/40 backdrop-blur-xl border border-primary/20 text-center p-6">
+                <CheckCircle className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="font-bold text-lg mb-2">Ongoing Support</h3>
+                <p className="text-muted-foreground text-sm">Post-delivery maintenance and optimization</p>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </motion.section>
+      
+      {/* Testimonials Section - Moved before Footer */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={containerVariants}
+        className="py-20 bg-background"
       >
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
