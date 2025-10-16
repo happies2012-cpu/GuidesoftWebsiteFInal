@@ -3,8 +3,9 @@
 import React from 'react';
 import { motion, Easing } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
-import { Users, Award, TrendingUp, Globe, Search, Route, Wrench, RotateCcw, Brain, Workflow, Plug, Users2, Zap, Target, HeartHandshake, Scale } from 'lucide-react';
+import { Users, Award, TrendingUp, Globe, Search, Route, Wrench, RotateCcw, Brain, Workflow, Plug, Users2, Zap, Target, HeartHandshake, Scale, Cpu, ZapIcon, Monitor, Palette, BarChartBig, MessageCircle } from 'lucide-react';
 import { ShuffleHero } from '@/components/ui/shuffle-grid';
+import { StaggerTestimonials } from '@/components/ui/stagger-testimonials';
 import ceoImage from '@/assets/praveen.png';
 import SmartImage from '@/components/ui/SmartImage';
 
@@ -85,6 +86,39 @@ const StatsAndCEOSection = () => {
     }
   ];
 
+  const coreCompetencies = [
+    {
+      icon: Cpu,
+      title: "AI-Driven Digital Transformation",
+      description: "Integrating intelligent agents, predictive analytics, and automation to help enterprises evolve into AI-first organizations."
+    },
+    {
+      icon: ZapIcon,
+      title: "Workflow & Process Automation",
+      description: "Streamlining complex business processes with Gen-AI powered workflow orchestration, robotic process automation (RPA), and intelligent data pipelines."
+    },
+    {
+      icon: Monitor,
+      title: "Enterprise Application Development",
+      description: "Crafting scalable, cloud-native web and mobile applications with seamless integration across modern architectures."
+    },
+    {
+      icon: Palette,
+      title: "UI/UX Innovation Lab",
+      description: "Delivering human-centered design systems powered by behavioral analytics and adaptive interfaces — where creativity meets cognitive technology."
+    },
+    {
+      icon: BarChartBig,
+      title: "Data Intelligence & Analytics",
+      description: "Turning big data into actionable insights with advanced data visualization, ML models, and decision intelligence dashboards."
+    },
+    {
+      icon: MessageCircle,
+      title: "AI Agents & Conversational Systems",
+      description: "Building context-aware digital agents and copilots that redefine how humans interact with technology."
+    }
+  ];
+
   const ceoInfo = {
     name: "Praveen Kumar",
     title: "CEO & Founder",
@@ -156,6 +190,43 @@ const StatsAndCEOSection = () => {
                     </Card>
                   </motion.div>
                 ))}
+              </div>
+              
+              {/* Our Core Competencies Section */}
+              <div className="mt-16 w-full max-w-2xl">
+                <div className="text-center mb-12">
+                  <h3 className="text-3xl font-bold text-foreground mb-3">Our Core Competencies</h3>
+                  <p className="text-muted-foreground max-w-lg mx-auto">
+                    Specialized expertise driving digital innovation and transformation
+                  </p>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {coreCompetencies.map((competency, index) => (
+                    <motion.div
+                      key={index}
+                      variants={cardVariants}
+                      whileHover="hover"
+                      transition={{ delay: index * 0.1 }}
+                      className="group relative"
+                    >
+                      <Card className="bg-background/40 backdrop-blur-xl border border-primary/20 hover:border-primary/50 transition-all h-full overflow-hidden">
+                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <CardContent className="p-6">
+                          <div className="flex items-start gap-4">
+                            <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-r from-gradient-primary-start to-gradient-primary-end flex items-center justify-center text-white shadow-lg group-hover:shadow-xl transition-all duration-300">
+                              <competency.icon className="h-6 w-6" />
+                            </div>
+                            <div className="flex-1">
+                              <h4 className="font-bold text-foreground text-lg mb-2">{competency.title}</h4>
+                              <p className="text-muted-foreground text-sm">{competency.description}</p>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
               
               {/* Enhanced Our Process Section */}
@@ -289,6 +360,27 @@ const StatsAndCEOSection = () => {
               </div>
             </motion.div>
           </div>
+        </div>
+      </motion.section>
+      
+      {/* Testimonials Section */}
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={containerVariants}
+        className="py-20 bg-muted/30"
+      >
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-gradient-primary-start via-gradient-primary-end to-cyan-500 bg-clip-text text-transparent">
+              What Our Clients Say
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Don't just take our word for it - hear from businesses we've transformed
+            </p>
+          </div>
+          <StaggerTestimonials />
         </div>
       </motion.section>
     </>
