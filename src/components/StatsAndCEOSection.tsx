@@ -52,28 +52,28 @@ const StatsAndCEOSection = () => {
       >
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Side: CEO Image */}
-            <motion.div variants={cardVariants} className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-background/40 backdrop-blur-xl border border-primary/20 h-full">
+            {/* Left Side: CEO Image - Increased size and mixed background */}
+            <motion.div variants={cardVariants} className="relative flex justify-center">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-background/40 backdrop-blur-xl border border-primary/20 w-4/5 mx-auto">
                 <SmartImage
                   src={ceoImage}
                   alt="CEO of Guidesoft"
                   className="w-full h-full object-cover object-top"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-gradient-primary-start/20 to-gradient-primary-end/20" />
-                <div className="absolute bottom-0 left-0 right-0 bg-background/90 backdrop-blur-sm rounded-lg p-4">
-                  <h3 className="text-xl font-semibold text-foreground mb-1">Praveen Kumar</h3>
-                  <p className="text-sm text-muted-foreground">CEO & Founder, Guidesoft</p>
+                <div className="absolute inset-0 bg-gradient-to-br from-gradient-primary-start/30 to-gradient-primary-end/30 mix-blend-overlay" />
+                <div className="absolute bottom-0 left-0 right-0 bg-background/90 backdrop-blur-sm rounded-lg p-6 m-4">
+                  <h3 className="text-2xl font-semibold text-foreground mb-1">Praveen Kumar</h3>
+                  <p className="text-base text-muted-foreground">CEO & Founder, Guidesoft</p>
                 </div>
               </div>
             </motion.div>
 
-            {/* Right Side: Stats Cards */}
-            <motion.div variants={cardVariants} className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-gradient-primary-start via-gradient-primary-end to-cyan-500 bg-clip-text text-transparent">
+            {/* Right Side: Stats Cards - Center aligned with reduced width */}
+            <motion.div variants={cardVariants} className="space-y-6 flex flex-col items-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-gradient-primary-start via-gradient-primary-end to-cyan-500 bg-clip-text text-transparent text-center">
                 Our Achievement Stats
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-2 gap-6 w-full max-w-2xl">
                 {stats.map((stat, index) => (
                   <motion.div
                     key={index}
@@ -95,8 +95,8 @@ const StatsAndCEOSection = () => {
               </div>
               
               {/* Our Process Section */}
-              <div className="mt-8 space-y-4">
-                <h3 className="text-2xl font-bold text-foreground">Our Process</h3>
+              <div className="mt-8 space-y-4 w-full max-w-2xl">
+                <h3 className="text-2xl font-bold text-foreground text-center">Our Process</h3>
                 <div className="grid grid-cols-1 gap-4">
                   <div className="flex items-start gap-3 p-4 rounded-lg bg-background/60 border border-primary/20 hover:border-primary/40 transition-all">
                     <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">1</div>
