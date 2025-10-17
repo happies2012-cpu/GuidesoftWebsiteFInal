@@ -11,18 +11,26 @@ datasource db {
 }
 
 model User {
-  id          String        @id @default(uuid())
-  email       String        @unique
-  password    String
-  name        String
-  role        Role          @default(USER)
-  createdAt   DateTime      @default(now())
-  updatedAt   DateTime      @updatedAt
-  pages       Page[]
-  aiTools     AITool[]
-  courses     Courses[]
-  enrollments Enrollments[]
-  aiEnrollments AIEnrollments[]
+  id                  String              @id @default(uuid())
+  email               String              @unique
+  password            String
+  name                String
+  role                Role                @default(USER)
+  avatar              String?
+  bio                 String?
+  location            String?
+  website             String?
+  linkedin            String?
+  twitter             String?
+  createdAt           DateTime            @default(now())
+  updatedAt           DateTime            @updatedAt
+  pages               Page[]
+  aiTools             AITool[]
+  courses             Courses[]
+  enrollments         Enrollments[]
+  aiEnrollments       AIEnrollments[]
+  reviews             Review[]
+  learningPathEnrollments LearningPathEnrollment[]
 
   @@map("users")
 }
@@ -34,50 +42,60 @@ enum Role {
 }
 
 model Page {
-  id          String   @id @default(uuid())
-  title       String
-  slug        String   @unique
-  content     String
-  metaTitle   String?
-  metaDesc    String?
-  published   Boolean  @default(false)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  authorId    String
-  author      User     @relation(fields: [authorId], references: [id])
+  id        String   @id @default(uuid())
+  title     String
+  slug      String   @unique
+  content   String
+  metaTitle String?
+  metaDesc  String?
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  authorId  String
+  author    User     @relation(fields: [authorId], references: [id])
 }
 
 model Navigation {
-  id        String   @id @default(uuid())
+  id        String      @id @default(uuid())
   title     String
   href      String?
-  order     Int      @default(0)
+  order     Int         @default(0)
   parentId  String?
-  parent    Navigation?  @relation("NavigationHierarchy", fields: [parentId], references: [id], onDelete: Cascade)
+  parent    Navigation? @relation("NavigationHierarchy", fields: [parentId], references: [id], onDelete: Cascade)
   children  Navigation[] @relation("NavigationHierarchy")
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
 }
 
 model AITool {
-  id          String   @id @default(uuid())
-  name        String
-  description String
-  category    String
-  icon        String?
-  url         String?
-  tags        String
-  featured    Boolean  @default(false)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  authorId    String
-  author      User     @relation(fields: [authorId], references: [id])
-  enrollments AIEnrollments[]
+  id             String        @id @default(uuid())
+  name           String
+  description    String
+  category       String
+  icon           String?
+  url            String?
+  tags           String
+  featured       Boolean       @default(false)
+  usageCount     Int           @default(0)
+  rating         Float         @default(0)
+  reviewCount    Int           @default(0)
+  lastUpdated    DateTime      @default(now())
+  pricingModel   String?       // free, freemium, paid
+  monthlyPrice   Float?
+  annualPrice    Float?
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  authorId       String
+  author         User          @relation(fields: [authorId], references: [id])
+  enrollments    AIEnrollments[]
+  reviews        Review[]
 
   @@index([name])
   @@index([category])
   @@index([tags])
   @@index([featured])
+  @@index([rating])
+  @@index([usageCount])
 }
 
 model FormSubmission {
@@ -105,26 +123,27 @@ model CourseCategories {
 }
 
 model Courses {
-  id             String             @id @default(uuid())
+  id             String        @id @default(uuid())
   title          String
   description    String
   instructor     String
   duration       String
   level          String
   categoryId     String
-  category       CourseCategories   @relation(fields: [categoryId], references: [id])
+  category       CourseCategories @relation(fields: [categoryId], references: [id])
   thumbnailUrl   String?
   videoUrl       String?
-  price          Float              @default(0)
-  rating         Float              @default(0)
-  studentsCount  Int                @default(0)
-  isPublished    Boolean            @default(false)
+  price          Float         @default(0)
+  rating         Float         @default(0)
+  studentsCount  Int           @default(0)
+  isPublished    Boolean       @default(false)
   createdBy      String
-  creator        User               @relation(fields: [createdBy], references: [id])
-  createdAt      DateTime           @default(now())
-  updatedAt      DateTime           @updatedAt
+  creator        User          @relation(fields: [createdBy], references: [id])
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
   lessons        CourseLessons[]
   enrollments    Enrollments[]
+  reviews        Review[]
 
   @@index([categoryId])
   @@index([isPublished])
@@ -161,26 +180,106 @@ model Enrollments {
 
 // New model for AI tool enrollments
 model AIEnrollments {
-  id           String   @id @default(uuid())
-  userId       String?
-  toolId       String
-  tool         AITool   @relation(fields: [toolId], references: [id])
-  name         String
-  email        String
-  phone        String
-  linkedin     String?
-  aadhar       String
-  pan          String
-  message      String?
-  isVerified   Boolean  @default(false)
-  isPaid       Boolean  @default(false)
-  transactionId String?
-  enrolledAt   DateTime @default(now())
-  user         User?    @relation(fields: [userId], references: [id])
+  id                  String   @id @default(uuid())
+  userId              String?
+  toolId              String
+  tool                AITool   @relation(fields: [toolId], references: [id])
+  name                String
+  email               String
+  phone               String
+  linkedin            String?
+  aadhar              String
+  pan                 String
+  message             String?
+  isVerified          Boolean  @default(false)
+  isPaid              Boolean  @default(false)
+  transactionId       String?
+  progress            Int      @default(0)
+  lastAccessed        DateTime @default(now())
+  certificateIssued   Boolean  @default(false)
+  certificateUrl      String?
+  enrolledAt          DateTime @default(now())
+  user                User?    @relation(fields: [userId], references: [id])
 
   @@index([toolId])
   @@index([email])
   @@index([phone])
   @@index([isVerified])
   @@index([isPaid])
+  @@index([lastAccessed])
+}
+
+model Review {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  toolId      String?
+  tool        AITool?  @relation(fields: [toolId], references: [id])
+  courseId    String?
+  course      Courses? @relation(fields: [courseId], references: [id])
+  rating      Int      // 1-5 stars
+  title       String
+  content     String
+  helpfulCount Int     @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([userId])
+  @@index([toolId])
+  @@index([courseId])
+  @@index([rating])
+}
+
+model LearningPath {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  category    String
+  difficulty  String   // beginner, intermediate, advanced
+  duration    String   // estimated time to complete
+  thumbnail   String?
+  isPublished Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  steps       LearningPathStep[]
+  enrollments LearningPathEnrollment[]
+
+  @@index([category])
+  @@index([difficulty])
+  @@index([isPublished])
+}
+
+model LearningPathStep {
+  id             String   @id @default(uuid())
+  pathId         String
+  path           LearningPath @relation(fields: [pathId], references: [id])
+  title          String
+  description    String
+  order          Int
+  contentType    String   // video, article, quiz, project
+  contentUrl     String?
+  duration       Int      // minutes
+  isMandatory    Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([pathId])
+  @@index([order])
+}
+
+model LearningPathEnrollment {
+  id         String   @id @default(uuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  pathId     String
+  path       LearningPath @relation(fields: [pathId], references: [id])
+  progress   Int      @default(0)
+  completed  Boolean  @default(false)
+  enrolledAt DateTime @default(now())
+  completedAt DateTime?
+
+  @@unique([userId, pathId])
+  @@index([userId])
+  @@index([pathId])
+  @@index([completed])
 }

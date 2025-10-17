@@ -88,6 +88,7 @@ const Register = lazy(() => import("./pages/auth/Register"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const AILearning = lazy(() => import("./pages/AILearning"));
 const SplashCursorDemo = lazy(() => import("./pages/SplashCursorDemo"));
+const APITest = lazy(() => import("./pages/APITest"));
 
 // Lazy load portfolio pages - Travel
 const TravelBookingEnginePortfolio = lazy(() => import("./pages/portfolio/TravelBookingEngine"));
@@ -154,6 +155,7 @@ const AppContent = () => {
               {/* AI Learning */}
               <Route path="/ai-learning" element={<AILearning />} />
               <Route path="/splash-cursor-demo" element={<SplashCursorDemo />} />
+              <Route path="/api-test" element={<APITest />} />
 
               {/* New overview pages */}
               <Route path="/solutions" element={<SolutionsOverview />} />

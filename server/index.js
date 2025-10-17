@@ -14,6 +14,8 @@ import aiToolsRoutes from './routes/ai-tools.js';
 import aiEnrollmentsRoutes from './routes/ai-enrollments.js';
 import settingsRoutes from './routes/settings.js';
 import formsRoutes from './routes/forms.js';
+import reviewsRoutes from './routes/reviews.js';
+import learningPathsRoutes from './routes/learning-paths.js';
 
 dotenv.config();
 
@@ -83,6 +85,8 @@ app.use('/api/ai-tools', aiToolsRoutes);
 app.use('/api/ai-enrollments', aiEnrollmentsRoutes);
 app.use('/api/settings', settingsRoutes);
 app.use('/api/forms', formsRoutes);
+app.use('/api/reviews', reviewsRoutes);
+app.use('/api/learning-paths', learningPathsRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
