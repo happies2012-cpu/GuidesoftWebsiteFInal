@@ -16,6 +16,7 @@ import VerticalSocialDock from "./components/VerticalSocialDock";
 import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
 import BackToTopButton from "./components/BackToTopButton";
+import RobotCursor from "./components/RobotCursor";
 
 // Lazy load pages for better performance
 const Home = lazy(() => import("./pages/Home"));
@@ -89,6 +90,7 @@ const Dashboard = lazy(() => import("./pages/Dashboard"));
 const AILearning = lazy(() => import("./pages/AILearning"));
 const SplashCursorDemo = lazy(() => import("./pages/SplashCursorDemo"));
 const APITest = lazy(() => import("./pages/APITest"));
+const RobotCursorDemo = lazy(() => import("./pages/RobotCursorDemo"));
 
 // Lazy load portfolio pages - Travel
 const TravelBookingEnginePortfolio = lazy(() => import("./pages/portfolio/TravelBookingEngine"));
@@ -127,6 +129,7 @@ const AppContent = () => {
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <RobotCursor />
         <div className="min-h-screen flex flex-col">
           <Header />
           <VerticalSocialDock />
@@ -156,6 +159,7 @@ const AppContent = () => {
               <Route path="/ai-learning" element={<AILearning />} />
               <Route path="/splash-cursor-demo" element={<SplashCursorDemo />} />
               <Route path="/api-test" element={<APITest />} />
+              <Route path="/robot-cursor-demo" element={<RobotCursorDemo />} />
 
               {/* New overview pages */}
               <Route path="/solutions" element={<SolutionsOverview />} />
